@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="template1.css"> -->
+    <style>
+        body {
+            width: 870px;
+            height: 297px;
+            margin: 0px auto;
+        }
+
+        .personal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            display: -webkit-flex;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: center;
+        }
+
+        .heading1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .heading2 {
+            font-size: 30px;
+        }
+
+        .heading3 {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .heading4 {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .heading5 {
+            font-size: 15px;
+            width: 40%;
+        }
+
+        .line {
+            width: 100%;
+            margin: 5px auto;
+            height: 2px;
+            background-color: #252525;
+        }
+
+        .education {
+            margin-top: 10px;
+        }
+
+        .schoolhead {
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            -webkit-display: flex;
+            display: -webkit-flex;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: center;
+        }
+
+        .contactdeatils span {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0 10px;
+            display: -webkit-flex;
+            -webkit-flex-direction: column;
+            margin: 5px 0;
+            /* width: 30%; */
+        }
+
+        .contactdeatils {
+            margin: 5px 0;
+        }
+
+        .smallblock {
+            margin: 15px;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+            /* flex-wrap: wrap; */
+            justify-content: center;
+            align-items: center;
+            display: -webkit-flex;
+            -webkit-flex-direction: column;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            /* -webkit-flex-wrap: wrap; */
+        }
+
+        .namesum {
+            width: 70%;
+        }
+
+        li {
+            width: 150px;
+        }
+
+        .grid {
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+            -webkit-justify-content: space-between;
+        }
+
+        .small {
+            width: 20%;
+        }
+
+        .big {
+            width: 75%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- personal details -->
+    <div class="personal">
+        <div class="namesum">
+            <div class="heading1">Tanmay Karale</div>
+            <div class="summary">
+                {%summary%}
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="big">
+
+            <!--  experience block start -->
+            <div class="education">
+                <div class="heading2">
+                    Experience
+                </div>
+                <div class="line"></div>
+                {%experienceinfo%}
+
+            </div>
+            <!-- project block starts -->
+            <div class="education">
+                <div class="heading2">
+                    Projects
+                </div>
+                <div class="line"></div>
+                {%projects%}
+            </div>
+            <!-- education block starts -->
+            <div class="education">
+                <div class="heading2">
+                    Education
+                </div>
+                <div class="line"></div>
+                {%schoolinfo%}
+            </div>
+        </div>
+        <div class="small">
+            <!-- hobbies skills and summary -->
+            <div class="education">
+                <div class="heading2">
+                    Others
+                </div>
+                <div class="line"></div>
+                <div class="contactdeatils">
+                    <div class="heading3">Contact Details</div>
+                    <span>{%mobile%}</span><span>{%email%}</span><span>{%linkedin%}</span><span>{%github%}</span>
+                </div>
+                <!-- block 1 starts -->
+                <div class="heading3">Skills</div>
+
+                <ol class="skills">
+                    {%skills%}
+
+                </ol>
+                <!-- block 1 ends -->
+                <div class="heading3">Hobbies</div>
+
+                <ol class="skills">
+                    {%hobbies%}
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
