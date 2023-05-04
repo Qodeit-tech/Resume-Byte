@@ -1,0 +1,11 @@
+.pdes {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #1a1c6a;
+}
+.center1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

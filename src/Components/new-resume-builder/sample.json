@@ -1,0 +1,53 @@
+{
+    "education": [
+        {
+            "degree": "B.E.",
+            "school": "Pune Institute Of Computer Technology",
+            "endDate": "2025-05-10",
+            "startDate": "2021-10-10",
+            "discipline": " Space Science",
+            "marks": "85%"
+        }
+    ],
+    "experience": [
+        {
+            "organization": "Qodeit",
+            "position": "web developer",
+            "endDate": "2023-03-17",
+            "startDate": "2034-06-17",
+            "description": "I worked as a full stack developer intern at Qodeit for 3 months. I was working mainly on frontend part. I learnt to implement payment gateways,convert html to pdf etc."
+        }
+    ],
+    "hobbies": [
+        "games",
+        "volleyball"
+    ],
+    "personal": {
+        "email": "tanmay@gmail.com",
+        "github": "https://github.com/TanmayKarale",
+        "linkedin": "https://linkedin.com/tanmaykarale",
+        "mobile": "9373417442",
+        "name": "Tanmay Karale",
+        "skills": [
+            "node.js",
+            "react.js",
+            "tailwind css",
+            "python",
+            "photoshop",
+            "blender 3D"
+        ]
+    },
+    "projects": [
+        {
+            "title": "Personal Portfolio Website",
+            "link": "https://karaletanmay.github.io/Portfolio/",
+            "description": "This is my personal portfolio website which shows my projects, academics and all other important information about me to viewers"
+        },
+        {
+            "title": "backend of tour and tourism website",
+            "link": "https://github.com/KaraleTanmay/Tour-and-tourism-API-with-backend",
+            "description": "I am creating a server side rendered website under a NodeJs course. I learnt to create various API endpoints and handling requests using express and MongoDB. Also how to provide functionalities like searching for specific field, sorting. Add academic/ personal project"
+        }
+    ],
+    "template": "3"
+}
