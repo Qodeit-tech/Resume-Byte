@@ -2,7 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const fs = require('fs');
-const pdf = require('html-pdf');
 const { replace_1 } = require('./replace');
 const Razorpay = require('razorpay');
 const dotenv = require('dotenv');
@@ -11,7 +10,6 @@ const sendEmail = require('./sendmail');
 const PDFWatermark = require('pdf-watermark');
 const { Configuration, OpenAIApi } = require("openai");
 const catchAsync = require('./catchAsync');
-const convertapi = require('convertapi')(process.env.SECRET);
 const puppeteer = require('puppeteer');
 
 dotenv.config({ path: "./configure.env" })
@@ -103,6 +101,7 @@ const createPdf = catchAsync(async (req, res, next) => {
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
             const html = fs.readFileSync(htmlFilePath, 'utf8');
+            // console.log(html)
             await page.setContent(html);
             await page.pdf({ path: pdfFilePath ,format: 'A4', printBackground: true,  
             margin: {
@@ -112,42 +111,35 @@ const createPdf = catchAsync(async (req, res, next) => {
                 right: '30px'
               }});
             await browser.close();
+            res.status(200).json({
+                status: "success",
+                data: {
+                    id: req.body.personal.email
+                }
+            });
 
-            // convertapi.convert('pdf', {
-            //     File: `./resume/${req.body.personal.email}.html`
-            // }, 'html').then(function (result) {
-            //     console.log(result)
-            //     result.saveFiles("./resume2/");
-            // })
-        }
-        )
-        // console.log(html);
-        // let options = { printBackground: true, preferCSSPageSize: true, border: { top: "30px", bottom: "30px" } };
-        // pdf.create(html, options).toFile(`./resume/${req.body.personal.email}.pdf`, function (err, resp) {
-        //     if (err) {
-        //         return (next)
-        //     }
-        //     else {
-        //         res.status(200).json({
-        //             status: "success",
-        //             data: {
-        //                 id: req.body.personal.email
-        //             }
-        //         })
-        //     }
-        // });
+            
+    })
+          
     } catch (error) {
         console.log(error)
+        return next(error)
     }
 
 })
 
 
+
+ 
+
+
+
 const createWatermark = catchAsync(async (req, res, next) => {
     // const id = req.body.id
+    try{
     await PDFWatermark({
         // pdf_path: `./resume/tanmay11.pdf`,
-        pdf_path: `./resume/${req.body.id}.pdf`,
+        pdf_path: `./resume2/${req.body.id}.pdf`,
         text: "RESUMEBYTE",
         textOption: {
             diagonally: true,
@@ -160,7 +152,10 @@ const createWatermark = catchAsync(async (req, res, next) => {
     await sendEmail({ filename: req.body.id + "_watermark", email: req.body.id })
     res.status(200).json({
         status: "success"
-    })
+    })}catch(err){
+        console.log(err)
+        return next(err)
+    }
 })
 
 const orderController = catchAsync(async (req, res, next) => {
@@ -176,9 +171,9 @@ const orderController = catchAsync(async (req, res, next) => {
             console.log(err)
             return (next)
         }
-        res.status(200).json({
+        res.status(204).json({
             status: "success",
-            order
+            order : order
         })
     });
 })
