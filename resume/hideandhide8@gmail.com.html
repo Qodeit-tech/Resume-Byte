@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="template1.css"> -->
+    <style>
+        body {
+            width: 870px;
+            height: 297px;
+            margin: 0px auto;
+        }
+
+        .personal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            display: -webkit-flex;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: center;
+        }
+
+        .heading1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .heading2 {
+            font-size: 30px;
+        }
+
+        .heading3 {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .heading4 {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .heading5 {
+            font-size: 15px;
+            width: 40%;
+        }
+
+        .line {
+            width: 100%;
+            margin: 5px auto;
+            height: 2px;
+            background-color: #252525;
+        }
+
+        .education {
+            margin-top: 10px;
+        }
+
+        .schoolhead {
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            -webkit-display: flex;
+            display: -webkit-flex;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: center;
+        }
+
+        .contactdeatils span {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 0 10px;
+            display: -webkit-flex;
+            -webkit-flex-direction: column;
+            margin: 5px 0;
+            /* width: 30%; */
+        }
+
+        .contactdeatils {
+            margin: 5px 0;
+        }
+
+        .smallblock {
+            margin: 15px;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+            /* flex-wrap: wrap; */
+            justify-content: center;
+            align-items: center;
+            display: -webkit-flex;
+            -webkit-flex-direction: column;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            /* -webkit-flex-wrap: wrap; */
+        }
+
+        .namesum {
+            width: 90%;
+        }
+
+        li {
+            width: 150px;
+        }
+
+        .grid {
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+            -webkit-justify-content: space-between;
+        }
+
+        .small {
+            width: 20%;
+        }
+
+        .big {
+            width: 75%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- personal details -->
+    <div class="personal">
+        <div class="namesum">
+            <div class="heading1">Tanmay Karale</div>
+            <div class="summary">
+                I'm a full-stact developer and have speciallization in MERN stack. I can create beautifull frontend designs and strong backends. I am a full time learner and always ready to do any given task quickly.
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="small">
+            <!-- hobbies skills and summary -->
+            <div class="education">
+                <div class="heading2">
+                    Others
+                </div>
+                <div class="line"></div>
+                <div class="contactdeatils">
+                    <div class="heading3">Contact Details</div>
+                    <span>9373417442</span><span>hideandhide8@gmail.com</span><span>https://linkedin.com/tanmaykarale</span><span>https://github.com/tanmaykarale</span>
+                </div>
+                <!-- block 1 starts -->
+                <div class="heading3">Skills</div>
+
+                <ol class="skills">
+                    <li>HTML</li><li>CSS</li><li>Javascript</li><li>React.js</li><li>Tailwind Css</li><li>Figma</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Postman</li><li>Python</li><li>Tensorflow</li>
+
+                </ol>
+                <!-- block 1 ends -->
+                <div class="heading3">Hobbies</div>
+
+                <ol class="skills">
+                    <li>Video-games</li><li>volleyball</li>
+                </ol>
+            </div>
+        </div>
+        <div class="big">
+
+            <!--  experience block start -->
+            <div class="education">
+                <div class="heading2">
+                    Experience
+                </div>
+                <div class="line"></div>
+                <div class="smallblock">
+    <div class="schoolhead">
+        <span class="heading3">Qodeit</span>
+        <span class="heading5">from 2034-06-17 to 2023-03-17</span>
+    </div>
+    <div class="schooldetails">
+        <div class="heading4">
+            web developer
+        </div>
+        <div>
+            I worked as a full stack developer intern at Qodeit for 3 months. I was working mainly on frontend part. I learnt to create working forms, creating beautifull UI, implement payment gateways,converting html to pdf, sending mail,integrating chatGPT-3 etc. 
+        </div>
+    </div>
+</div>
+
+            </div>
+            <!-- project block starts -->
+            <div class="education">
+                <div class="heading2">
+                    Projects
+                </div>
+                <div class="line"></div>
+                <div class="smallblock">
+    <div class="schoolhead">
+        <span class="heading3">Personal Portfolio Website</span>
+        <span class="heading5">https://karaletanmay.github.io/Portfolio/</span>
+    </div>
+    <div class="schooldetails">
+        <div>
+            This is my personal portfolio website. I can display my projects, academics, achievements and all other important information about me to viewers. People can contact me from infromation given for buissness purpose.
+        </div>
+    </div>
+</div><div class="smallblock">
+    <div class="schoolhead">
+        <span class="heading3">backend of tour and tourism website</span>
+        <span class="heading5">https://github.com/KaraleTanmay/Tour-and-tourism-API-with-backend</span>
+    </div>
+    <div class="schooldetails">
+        <div>
+            I am creating a server side rendered website under a NodeJs course. I learnt to create various API endpoints and handling requests using express and MongoDB. Also how to provide functionalities like searching for specific field, sorting. Add academic/ personal project
+        </div>
+    </div>
+</div>
+            </div>
+            <!-- education block starts -->
+            <div class="education">
+                <div class="heading2">
+                    Education
+                </div>
+                <div class="line"></div>
+                <div class="smallblock">
+    <div class="schoolhead">
+        <span class="heading3">Pune Institute Of Computer Technology</span>
+        <span class="heading5">from 2021-10-10 to 2025-05-10</span>
+    </div>
+    <div class="schooldetails">
+        <div>
+            Degree :B.E.
+        </div>
+        <div>
+            Discipline :  Space Science
+        </div>
+        <div>
+            Marks : 85%
+        </div>
+    </div>
+</div><div class="smallblock">
+    <div class="schoolhead">
+        <span class="heading3">RMD English Mediaum School</span>
+        <span class="heading5">from 2019 to 2021</span>
+    </div>
+    <div class="schooldetails">
+        <div>
+            Degree :HSC Board
+        </div>
+        <div>
+            Discipline : Science
+        </div>
+        <div>
+            Marks : 95%
+        </div>
+    </div>
+</div><div class="smallblock">
+    <div class="schoolhead">
+        <span class="heading3">Shri Bhairavnath Vidyalaya</span>
+        <span class="heading5">from 2013 to 2019</span>
+    </div>
+    <div class="schooldetails">
+        <div>
+            Degree :SSC Board
+        </div>
+        <div>
+            Discipline : Semi-English
+        </div>
+        <div>
+            Marks : 95%
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

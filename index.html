@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="   style.css"> -->
+    <style>
+        /* Set the overall size of the page to A4 dimensions */
+        body {
+            width: 870px;
+            height: 297px;
+            margin: 0 auto;
+        }
+
+        .resume {
+            margin-top: -10px;
+        }
+
+        /* Add padding to the top and bottom to create margins */
+        .experience {
+            padding-top: 0.1mm;
+            padding-bottom: 2mm;
+        }
+
+        /* Adjust font sizes and line heights to fit the larger page size */
+        .heading01 {
+            font-size: 40px;
+            /* margin-top: 20px;; */
+            line-height: 0.1px;
+        }
+
+        .heading02 {
+            font-size: 25px;
+            line-height: 35px;
+        }
+
+        .heading03 {
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: -10px;
+            margin-top: 15px;
+            ;
+        }
+
+        .heading04 {
+            font-size: 20px;
+            line-height: 30px;
+            margin-top: -20px;
+        }
+
+        .heading05 {
+            margin-top: -10px;
+            margin-bottom: -9px;
+        }
+
+        .detail {
+            margin-top: -10px;
+            font-size: 18px;
+            line-height: 25px;
+        }
+
+        /* Adjust the position of the date to fit the larger page size */
+        #a1 {
+            position: absolute;
+            right: 70px;
+            top: 160px;
+            font-size: 20px;
+        }
+
+        .detail1 {
+            margin-top: -20px;
+            margin-bottom: 15px;
+        }
+
+        #a2 {
+            position: absolute;
+            right: 70px;
+            top: 400px;
+            font-size: 20px;
+        }
+
+        .game {
+            margin-bottom: 12px;
+        }
+
+        .detail7 {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading0">
+        <h1 class="heading01">{%name%}<br></h1>
+        <h3 class="heading02">{%email%} | {%mobile%} | Vellore,India</h3>
+    </div>
+
+    <div class="experience">
+        <h2 class="heading03">EDUCATION</h2>
+        <hr>
+        {%schoolinfo%}
+    </div>
+    <div class="experience">
+        <h2 class="heading03">EXPERIENCE</h2>
+        <hr>
+        {%experienceinfo%}
+    </div>
+    <div class="experience">
+        <h2 class="heading03">HOBBIES</h2>
+        <hr>
+        {%hobbies%}
+    </div>
+    <div class="experience">
+        <h2 class="heading03">PERSONAL</h2>
+        <hr>
+
+        <li class="detail7">
+            {%email%}
+        </li>
+        <li>
+            {%github%}
+        </li>
+        <li>
+            {%linkedin%}
+        </li>
+        <li>
+            {%mobile%}
+        </li>
+        <h3>Skills : </h3>
+        <ul>
+            {%skills%}
+        </ul>
+    </div>
+
+    <div class="experience">
+        <h2 class="heading05">PROJECTS</h2>
+        <hr>
+        {%projects%}
+    </div>
+
+    </div>
+</body>
+
+</html>
