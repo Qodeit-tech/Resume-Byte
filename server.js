@@ -9,9 +9,10 @@ const dotenv = require('dotenv');
 const crypto = require("crypto");
 const sendEmail = require('./sendmail');
 const PDFWatermark = require('pdf-watermark');
-const fastify = require('fastify')();
 const { Configuration, OpenAIApi } = require("openai");
 const catchAsync = require('./catchAsync');
+const convertapi = require('convertapi')(process.env.SECRET);
+const puppeteer = require('puppeteer');
 
 dotenv.config({ path: "./configure.env" })
 
@@ -41,74 +42,100 @@ const createPdf = catchAsync(async (req, res, next) => {
 
     let data = req.body;
     let html;
-    try {
+    // try {
 
 
-        const openai = new OpenAIApi(configuration);
+    //     const openai = new OpenAIApi(configuration);
 
-        const project_desc = `improve the following paragraph "${data.summary}"`;
-        const optimized_project_desc = await openai.createCompletion({
-            model: 'text-davinci-003',
-            prompt: project_desc,
-            max_tokens: 100,
-            n: 1,
-            stop: null,
-            temperature: 0.5,
-        });
-        data.summary = optimized_project_desc.data.choices[0].text.trim();
+    //     const project_desc = `improve the following paragraph "${data.summary}"`;
+    //     const optimized_project_desc = await openai.createCompletion({
+    //         model: 'text-davinci-003',
+    //         prompt: project_desc,
+    //         max_tokens: 100,
+    //         n: 1,
+    //         stop: null,
+    //         temperature: 0.5,
+    //     });
+    //     data.summary = optimized_project_desc.data.choices[0].text.trim();
 
-        // Send descriptions to OpenAI API for optimization
-        for (const project of data.experience) {
-            const project_desc = `improve the following paragraph "${project.description}"`;
-            const optimized_project_desc = await openai.createCompletion({
-                model: 'text-davinci-003',
-                prompt: project_desc,
-                max_tokens: 100,
-                n: 1,
-                stop: null,
-                temperature: 0.5,
-            });
-            // Update JSON data with optimized descriptions
-            project.description = optimized_project_desc.data.choices[0].text.trim();
-        }
-        // // // For projects description
-        for (const project of data.projects) {
-            const project_desc = `improve the following paragraph "${project.description}"`;
-            const optimized_project_desc = await openai.createCompletion({
-                model: 'text-davinci-003',
-                prompt: project_desc,
-                max_tokens: 100,
-                n: 1,
-                stop: null,
-                temperature: 0.5,
-            });
-            // Update JSON data with optimized descriptions
-            project.description = optimized_project_desc.data.choices[0].text.trim();
-        }
-    } catch (error) {
-        console.log("optimization failed", error)
-    }
+    //     // Send descriptions to OpenAI API for optimization
+    //     for (const project of data.experience) {
+    //         const project_desc = `improve the following paragraph "${project.description}"`;
+    //         const optimized_project_desc = await openai.createCompletion({
+    //             model: 'text-davinci-003',
+    //             prompt: project_desc,
+    //             max_tokens: 100,
+    //             n: 1,
+    //             stop: null,
+    //             temperature: 0.5,
+    //         });
+    //         // Update JSON data with optimized descriptions
+    //         project.description = optimized_project_desc.data.choices[0].text.trim();
+    //     }
+    //     // // // For projects description
+    //     for (const project of data.projects) {
+    //         const project_desc = `improve the following paragraph "${project.description}"`;
+    //         const optimized_project_desc = await openai.createCompletion({
+    //             model: 'text-davinci-003',
+    //             prompt: project_desc,
+    //             max_tokens: 100,
+    //             n: 1,
+    //             stop: null,
+    //             temperature: 0.5,
+    //         });
+    //         // Update JSON data with optimized descriptions
+    //         project.description = optimized_project_desc.data.choices[0].text.trim();
+    //     }
+    // } catch (error) {
+    //     console.log("optimization failed", error)
+    // }
 
     try {
 
 
 
         html = replace_1(data, data.template)
+        fs.writeFile(`./resume/${req.body.personal.email}.html`, html, async () => {
+
+            const htmlFilePath=`./resume/${req.body.personal.email}.html`
+            const pdfFilePath=`./resume2/${req.body.personal.email}.pdf`
+
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+            const html = fs.readFileSync(htmlFilePath, 'utf8');
+            await page.setContent(html);
+            await page.pdf({ path: pdfFilePath ,format: 'A4', printBackground: true,  
+            margin: {
+                top: '30px',
+                bottom: '30px',
+                left: '30px',
+                right: '30px'
+              }});
+            await browser.close();
+
+            // convertapi.convert('pdf', {
+            //     File: `./resume/${req.body.personal.email}.html`
+            // }, 'html').then(function (result) {
+            //     console.log(result)
+            //     result.saveFiles("./resume2/");
+            // })
+        }
+        )
         // console.log(html);
-        let options = { printBackground: true, preferCSSPageSize: true, border: { top: "30px", bottom: "30px" } };
-        pdf.create(html, options).toFile(`./resume/${req.body.personal.email}.pdf`, function (err, resp) {
-            if (err) {
-                return (next)
-            }
-            else {
-                res.status(200).json({
-                    status: "success",
-                    data: {
-                        id: req.body.personal.email
-                    }
-                })
-            }
-        });
+        // let options = { printBackground: true, preferCSSPageSize: true, border: { top: "30px", bottom: "30px" } };
+        // pdf.create(html, options).toFile(`./resume/${req.body.personal.email}.pdf`, function (err, resp) {
+        //     if (err) {
+        //         return (next)
+        //     }
+        //     else {
+        //         res.status(200).json({
+        //             status: "success",
+        //             data: {
+        //                 id: req.body.personal.email
+        //             }
+        //         })
+        //     }
+        // });
     } catch (error) {
         console.log(error)
     }
