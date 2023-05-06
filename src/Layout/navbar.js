@@ -10,7 +10,7 @@ const Navbar = ({ navbarDark }) => {
     "Services",
     "About",
     "Process",
-    // "Features",
+    "Features",
     "Blogs",
     "Contact",
   ];
@@ -19,6 +19,7 @@ const Navbar = ({ navbarDark }) => {
       anchorName: "Build Resume",
       link: "/build-resume",
     },
+    
   ];
 
   return (
@@ -26,12 +27,12 @@ const Navbar = ({ navbarDark }) => {
       <div
         // className={`bg-[#0e0f1f] fixed w-full top-0 z-50 text-white ${navbarDark ? "shadow-md" : ""
         //   } `}
-        className={` fixed w-full top-0 z-50 whitebg ${
+        className={` min-h-[3rem] fixed w-full top-0 z-10000 whitebg ${
           navbarDark ? "shadow-md" : ""
         } `}
       >
-        <div className="flex px-5 justify-between lg:justify-around lg:py-0 items-center">
-          <p className="font-semibold lg:w-1/4 text-left">Logo</p>
+        <div className="flex px-5 justify-between lg:justify-between lg:py-22 items-center">
+          <p className="font-semibold mt-[1rem] lg:w-1/4 text-left">Logo</p>
 
           <div
             className="block lg:hidden "
@@ -48,13 +49,13 @@ const Navbar = ({ navbarDark }) => {
             } py-3`}
           >
             {scrollTo.map((link, i) => (
-              <a
-                className="px-2 py-1 hover:text-white hover:bg-[#1d4ed8] rounded-md duration-200"
+              <Link
+                className="px-2 py-1 hover:text-white no-underline hover:bg-[#1d4ed8] rounded-md duration-200"
                 key={i}
-                href={`/#${link.toLowerCase()}`}
+                to={`/#${link.toLowerCase()}`}
               >
                 {link}
-              </a>
+              </Link>
             ))}
           </div>
           <div
@@ -74,20 +75,21 @@ const Navbar = ({ navbarDark }) => {
       <div
         className={`fixed top-0  ${
           navbarOpen ? "left-0" : "left-full"
-        }  w-screen h-screen flex flex-col gap-6 p-3 items-center justify-center z-50 bg-blue-900 bg-opacity-60 text-white font-semibold text-lg backdrop-blur-lg transition-all`}
+        }   w-screen h-screen flex flex-col gap-6 p-5 items-center justify-center z-50 bg-blue-900 bg-opacity-60 text-white font-semibold text-lg backdrop-blur-lg transition-all`}
         onClick={() => setNavbarOpen(false)}
       >
         {scrollTo.map((link, i) => (
           <a
             key={i}
             href={`/#${link.toLowerCase()}`}
-            className={`border-1 w-full text-center p-2 rounded-md border-slate-700 border-opacity-60`}
+            className={`border-1 w-full text-center text-white p-2 rounded-md no-underline border-slate-700 border-opacity-60`}
+          
           >
             {link}
           </a>
         ))}
         {newPageLinks.map(({ link, anchorName }) => {
-          const classnames = `border-1 w-full text-center p-2 rounded-md border-slate-700 border-opacity-60`;
+          const classnames = `no-underline border-1 w-full text-center p-2 rounded-md border-slate-700 border-opacity-60`;
           return (
             <NavLink
               className={({ isActive }) =>

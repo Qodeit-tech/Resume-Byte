@@ -154,7 +154,7 @@ const HomeCarousel = () => {
   };
 
   return (
-    <div style={styles}>
+    <div style={styles} id="home">
       {/* {carouselData.map((item, index) => (
                   <div
                     key={index}

@@ -13,7 +13,7 @@ import template from "../../images/features/template.png";
 
 function Feature() {
   return (
-    <div className="feature">
+    <div className="feature" id='features'> 
       <div className="container">
         <div className="row py-5">
           <h3 className="py-5 txt">
@@ -26,7 +26,7 @@ function Feature() {
               <p>
                 Create an awesome resume in minutes, without leaving your web
                 browser.
-              </p>
+                </p>
             </div>
             <div className="col-lg-4 col-md-4 col-sm-12">
               <img src={spell} alt="f1" className="center" />

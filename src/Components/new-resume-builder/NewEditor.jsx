@@ -11,7 +11,7 @@ import "./animation.css"
 export default function NewEditor(props) {
     const sections = ["PersonalDetails", "EducationDetails", "Experience", "Projects", "Hobbies", "Template Selection"];
 
-    const [component, setComponent] = useState(6);
+    const [component, setComponent] = useState(1);
     const [personal, setPersonal] = useState();
     const [education, setEducation] = useState();
     const [experience, setExperience] = useState();
@@ -21,13 +21,15 @@ export default function NewEditor(props) {
 
     return (
         <div className='w-full h-full flex flex-col justify-center items-center my-[4vh] md:mt-[8vh] forumfont'>
-            <div className='text-[50px] my-4'>
+            <div className='mx-[1.5rem] text-[50px] my-4'>
                 Resume Builder
             </div>
             <div className='w-[90%] md:w-[80%] flex flex-col justify-center items-center gap-y-5'>
                 <div className='flex justify-between w-full'>
                     {
-                        sections.map((val, i) => {
+                        sections.map((val,i) => {
+                            console.log(val)
+                            console.log(i)
                             return (
                                 <div className='w-1/6 flex justify-center gap-2' key={i} onClick={() => { if (i + 1 < component) { setComponent(i + 1) } }}>
                                     <div className={`px-2 md:px-8 py-2 ${component === i + 1 ? "bg-stone-200" : ""} rounded-lg hover:cursor-pointer`}>
@@ -38,6 +40,8 @@ export default function NewEditor(props) {
                                 </div>
                             )
                         })
+
+                
                     }
 
                 </div>

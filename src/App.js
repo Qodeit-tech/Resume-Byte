@@ -101,6 +101,8 @@ import Feature from "./Components/Features/Feature";
 import Cvex from "./Components/CvEx/Cvex";
 import Createcover from "./Components/createcover/Createcover";
 import Guide from "./Components/guide/Guide";
+import ServiceBox from "./Layout/service-box";
+
 function App() {
   const [navbarDark, setNavbarDark] = useState(true);
   const [id, setId] = useState(true);
@@ -137,7 +139,7 @@ function App() {
 
       {/* <Download></Download> */}
       <Routes>
-        <Route
+        <Route services
           path="/"
           element={
             <Fragment>
@@ -146,11 +148,13 @@ function App() {
                 setNavbarDark={setNavbarDark}
               ></HomeCarousel>
               <Testimonials />
+              
+              <ServiceBox/>
+              
+              <AboutUs />
               <Guide />
-              {/* <AboutUs /> */}
 
               <Templates />
-              {/* <Blog /> */}
 
               <ResumeShortlistedBy />
               <Createcover />
@@ -158,6 +162,8 @@ function App() {
               <Feature />
               <ResumeEx />
               <Process />
+              
+              <Blog />
               <Faq />
               <Join />
               <ContactUs />
@@ -171,7 +177,6 @@ function App() {
           element={
             <>
               <NewEditor set={setId} />
-              <ProgressBar progress={10} />
             </>
           }
         />
