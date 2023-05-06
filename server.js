@@ -96,8 +96,8 @@ const createPdf = catchAsync(async (req, res, next) => {
         html = replace_1(data, data.template)
         fs.writeFile(`./resume/${req.body.personal.email}.html`, html, async () => {
 
-            const htmlFilePath = `./resume/${req.body.personal.email}.html`
-            const pdfFilePath = `./resume/${req.body.personal.email}.pdf`
+            const htmlFilePath = __dirname + `/resume/${req.body.personal.email}.html`
+            const pdfFilePath = __dirname + `/resume/${req.body.personal.email}.pdf`
 
             const browser = await puppeteer.launch({ headless: 'new' });
             const page = await browser.newPage();
