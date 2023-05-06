@@ -142,14 +142,14 @@ const createWatermark = catchAsync(async (req, res, next) => {
     try {
         await PDFWatermark({
             // pdf_path: `./resume/tanmay11.pdf`,
-            pdf_path: `./resume/${req.body.id}.pdf`,
+            pdf_path: __dirname + `/resume/${req.body.id}.pdf`,
             text: "RESUMEBYTE",
             textOption: {
                 diagonally: true,
                 opacity: 0.2,
             },
             // output_dir: `./resume/tanmay11_watermark.pdf`
-            output_dir: `./resume/${req.body.id}_watermark.pdf`
+            output_dir: __dirname + `/resume/${req.body.id}_watermark.pdf`
         });
         console.log("watermark added")
         await sendEmail({ filename: req.body.id + "_watermark", email: req.body.id })
