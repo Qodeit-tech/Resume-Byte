@@ -14,24 +14,28 @@ const sendEmail = async options => {
 
     // 2) Define the email options
     const mailOptions = {
-        from: 'Resume Byte',
-        to: options.email || "tanmaykarale8112@gmail.com",
+        // from: 'akshay.pranav.kalathil@gmail.com',
+        from: 'chatbotusingchatgpt@gmail.com',
+        // to: options.email || "akshay.pranav.kalathil@gmail.com",
+        // to: 'akshay.kalathil.pranav@gmail.com',
+        to: 'aqibshk28@gmail.com',
+        // to: 'aqibshk28@gmail.com',
         subject: "Download Your resume",
         text: "Thank you for choosing us. Here is your resume",
         envelope: {
-            from: 'Resume Byte',
-            to: 'hideandhide8@gmail.com'
+            from: 'akshay.pranav.kalathil@gmail.com',
+            to: 'akshay.kalathil.pranav@gmail.com'
         },
         attachments: [
             {
                 filename: 'resume.pdf',
-                path: __dirname + "\\resume\\" + options.filename + ".pdf",
+                path: __dirname + "/resume/" + options.filename + ".pdf",
                 contentType: 'application/pdf'
             }]
     };
 
     // 3) Actually send the email
-    transport.sendMail(mailOptions, function (error, info) {
+    transport.sendMail(mailOptions, function(error, info) {
         if (error) {
             console.log(error);
         } else {

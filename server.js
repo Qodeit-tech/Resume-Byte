@@ -13,6 +13,7 @@ const catchAsync = require('./catchAsync');
 const puppeteer = require('puppeteer');
 
 dotenv.config({ path: "./configure.env" })
+// dotenv.config({ path: "./.env" })
 
 process.on("uncaughtException", (err) => {
     console.log("uncaught exception.. shutting down");
@@ -40,53 +41,53 @@ const createPdf = catchAsync(async (req, res, next) => {
 
     let data = req.body;
     let html;
-    // try {
+    try {
 
 
-    //     const openai = new OpenAIApi(configuration);
+        const openai = new OpenAIApi(configuration);
 
-    //     const project_desc = `improve the following paragraph "${data.summary}"`;
-    //     const optimized_project_desc = await openai.createCompletion({
-    //         model: 'text-davinci-003',
-    //         prompt: project_desc,
-    //         max_tokens: 100,
-    //         n: 1,
-    //         stop: null,
-    //         temperature: 0.5,
-    //     });
-    //     data.summary = optimized_project_desc.data.choices[0].text.trim();
+        const project_desc = `improve the following paragraph "${data.summary}"`;
+        const optimized_project_desc = await openai.createCompletion({
+            model: 'text-davinci-003',
+            prompt: project_desc,
+            max_tokens: 100,
+            n: 1,
+            stop: null,
+            temperature: 0.5,
+        });
+        data.summary = optimized_project_desc.data.choices[0].text.trim();
 
-    //     // Send descriptions to OpenAI API for optimization
-    //     for (const project of data.experience) {
-    //         const project_desc = `improve the following paragraph "${project.description}"`;
-    //         const optimized_project_desc = await openai.createCompletion({
-    //             model: 'text-davinci-003',
-    //             prompt: project_desc,
-    //             max_tokens: 100,
-    //             n: 1,
-    //             stop: null,
-    //             temperature: 0.5,
-    //         });
-    //         // Update JSON data with optimized descriptions
-    //         project.description = optimized_project_desc.data.choices[0].text.trim();
-    //     }
-    //     // // // For projects description
-    //     for (const project of data.projects) {
-    //         const project_desc = `improve the following paragraph "${project.description}"`;
-    //         const optimized_project_desc = await openai.createCompletion({
-    //             model: 'text-davinci-003',
-    //             prompt: project_desc,
-    //             max_tokens: 100,
-    //             n: 1,
-    //             stop: null,
-    //             temperature: 0.5,
-    //         });
-    //         // Update JSON data with optimized descriptions
-    //         project.description = optimized_project_desc.data.choices[0].text.trim();
-    //     }
-    // } catch (error) {
-    //     console.log("optimization failed", error)
-    // }
+        // Send descriptions to OpenAI API for optimization
+        for (const project of data.experience) {
+            const project_desc = `improve the following paragraph "${project.description}"`;
+            const optimized_project_desc = await openai.createCompletion({
+                model: 'text-davinci-003',
+                prompt: project_desc,
+                max_tokens: 100,
+                n: 1,
+                stop: null,
+                temperature: 0.5,
+            });
+            // Update JSON data with optimized descriptions
+            project.description = optimized_project_desc.data.choices[0].text.trim();
+        }
+        // // // For projects description
+        for (const project of data.projects) {
+            const project_desc = `improve the following paragraph "${project.description}"`;
+            const optimized_project_desc = await openai.createCompletion({
+                model: 'text-davinci-003',
+                prompt: project_desc,
+                max_tokens: 100,
+                n: 1,
+                stop: null,
+                temperature: 0.5,
+            });
+            // Update JSON data with optimized descriptions
+            project.description = optimized_project_desc.data.choices[0].text.trim();
+        }
+    } catch (error) {
+        console.log("optimization failed", error)
+    }
 
     try {
 
@@ -95,21 +96,23 @@ const createPdf = catchAsync(async (req, res, next) => {
         html = replace_1(data, data.template)
         fs.writeFile(`./resume/${req.body.personal.email}.html`, html, async () => {
 
-            const htmlFilePath=`./resume/${req.body.personal.email}.html`
-            const pdfFilePath=`./resume2/${req.body.personal.email}.pdf`
+            const htmlFilePath = `./resume/${req.body.personal.email}.html`
+            const pdfFilePath = `./resume/${req.body.personal.email}.pdf`
 
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
             const html = fs.readFileSync(htmlFilePath, 'utf8');
             // console.log(html)
             await page.setContent(html);
-            await page.pdf({ path: pdfFilePath ,format: 'A4', printBackground: true,  
-            margin: {
-                top: '30px',
-                bottom: '30px',
-                left: '30px',
-                right: '30px'
-              }});
+            await page.pdf({
+                path: pdfFilePath, format: 'A4', printBackground: true,
+                margin: {
+                    top: '30px',
+                    bottom: '30px',
+                    left: '30px',
+                    right: '30px'
+                }
+            });
             await browser.close();
             res.status(200).json({
                 status: "success",
@@ -118,9 +121,9 @@ const createPdf = catchAsync(async (req, res, next) => {
                 }
             });
 
-            
-    })
-          
+
+        })
+
     } catch (error) {
         console.log(error)
         return next(error)
@@ -130,29 +133,30 @@ const createPdf = catchAsync(async (req, res, next) => {
 
 
 
- 
+
 
 
 
 const createWatermark = catchAsync(async (req, res, next) => {
     // const id = req.body.id
-    try{
-    await PDFWatermark({
-        // pdf_path: `./resume/tanmay11.pdf`,
-        pdf_path: `./resume2/${req.body.id}.pdf`,
-        text: "RESUMEBYTE",
-        textOption: {
-            diagonally: true,
-            opacity: 0.2,
-        },
-        // output_dir: `./resume/tanmay11_watermark.pdf`
-        output_dir: `./resume/${req.body.id}_watermark.pdf`
-    });
-    console.log("watermark added")
-    await sendEmail({ filename: req.body.id + "_watermark", email: req.body.id })
-    res.status(200).json({
-        status: "success"
-    })}catch(err){
+    try {
+        await PDFWatermark({
+            // pdf_path: `./resume/tanmay11.pdf`,
+            pdf_path: `./resume/${req.body.id}.pdf`,
+            text: "RESUMEBYTE",
+            textOption: {
+                diagonally: true,
+                opacity: 0.2,
+            },
+            // output_dir: `./resume/tanmay11_watermark.pdf`
+            output_dir: `./resume/${req.body.id}_watermark.pdf`
+        });
+        console.log("watermark added")
+        await sendEmail({ filename: req.body.id + "_watermark", email: req.body.id })
+        res.status(200).json({
+            status: "success"
+        })
+    } catch (err) {
         console.log(err)
         return next(err)
     }
@@ -166,16 +170,24 @@ const orderController = catchAsync(async (req, res, next) => {
         currency: "INR",
         // receipt: "order_rcptid_11"
     };
-    instance.orders.create(options, function (err, order) {
-        if (err) {
-            console.log(err)
-            return (next)
-        }
-        res.status(204).json({
-            status: "success",
-            order : order
-        })
-    });
+    try {
+        instance.orders.create(options, function(err, order) {
+            console.log(order);
+
+            res.status(200).json({
+                status: "success",
+                order: order
+            })
+        });
+        // instance.orders.create(options, function (err, order) {
+        //     if (err) {
+        //         console.log(err)
+        //         return (next)
+        //     }
+    } catch (err) {
+        console.log(err)
+    }
+    // });
 })
 
 const verifyController = catchAsync(async (req, res, next) => {
