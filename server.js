@@ -99,7 +99,7 @@ const createPdf = catchAsync(async (req, res, next) => {
             const htmlFilePath = `./resume/${req.body.personal.email}.html`
             const pdfFilePath = `./resume/${req.body.personal.email}.pdf`
 
-            const browser = await puppeteer.launch();
+            const browser = await puppeteer.launch({ headless: 'new' });
             const page = await browser.newPage();
             const html = fs.readFileSync(htmlFilePath, 'utf8');
             // console.log(html)
