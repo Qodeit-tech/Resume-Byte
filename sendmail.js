@@ -16,15 +16,17 @@ const sendEmail = async options => {
     const mailOptions = {
         // from: 'akshay.pranav.kalathil@gmail.com',
         from: 'chatbotusingchatgpt@gmail.com',
-        to: options.email,
-        // to: 'akshay.kalathil.pranav@gmail.com',
+        // to: options.email,
+        to: 'akshay.kalathil.pranav@gmail.com',
         // to: 'aqibshk28@gmail.com',
         // to: 'aqibshk28@gmail.com',
         subject: "Download Your resume",
         text: "Thank you for choosing us. Here is your resume",
         envelope: {
-            from: 'akshay.pranav.kalathil@gmail.com',
-            to: 'akshay.kalathil.pranav@gmail.com'
+            from: 'chatbotusingchatgpt@gmail.com',
+            to: options.email
+
+            // to: 'akshay.kalathil.pranav@gmail.com'
         },
         attachments: [
             {
