@@ -9,17 +9,18 @@ import withWater from "./templates/watermark.png"
 const handleOpenRazorPay = (order, id) => {
     const options = {
         key: "rzp_test_QDoWkriK00mgyb", // Enter the Key ID generated from the Dashboard
+        // key: "rzp_test_hCyWsBSF5NbM04", // Enter the Key ID generated from the Dashboard
         amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         currency: order.currency,
         name: "Qodeit",
         // "description": "Test Transaction",
         // "image": "https://example.com/your_logo",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        handler: function (response) {
+        handler: function(response) {
             console.log(response)
             axios({
                 method: "POST",
-                url: "http://127.0.0.1:7000/verify",
+                url: "https://resume-byte-backend.onrender.com/verify",
                 data: {
                     response, id
                 }
@@ -37,15 +38,16 @@ const handleOpenRazorPay = (order, id) => {
 
 const handlePayment = async (id) => {
     const amount = 1;
-    axios(
+    await axios(
         {
             method: "POST",
-            url: "http://127.0.0.1:7000/orders",
+            url: "https://resume-byte-backend.onrender.com/orders",
             // apikey:"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",
             data: { amount }
         }).then((res) => {
-            // console.log(res.data.order)
+            console.log(res)
             const order = res.data.order
+            console.log(order)
             handleOpenRazorPay(order, id)
         }).catch((err) => {
             console.log(err);
@@ -57,7 +59,7 @@ const handleDownload = (id) => {
     axios(
         {
             method: "POST",
-            url: "http://127.0.0.1:7000/watermarkResume",
+            url: "https://resume-byte-backend.onrender.com/watermarkResume",
             // apikey:"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",
             data: { id }
         }).then((res) => {

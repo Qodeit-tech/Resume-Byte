@@ -27,7 +27,7 @@ export default function NewEditor(props) {
             <div className='w-[90%] md:w-[80%] flex flex-col justify-center items-center gap-y-5'>
                 <div className='flex justify-between w-full'>
                     {
-                        sections.map((val,i) => {
+                        sections.map((val, i) => {
                             console.log(val)
                             console.log(i)
                             return (
@@ -41,7 +41,7 @@ export default function NewEditor(props) {
                             )
                         })
 
-                
+
                     }
 
                 </div>
@@ -63,7 +63,7 @@ export default function NewEditor(props) {
                     <div className={`${component === 5 ? "block" : "hidden"} animatedT`}>
                         <Hobbies setcomp={setComponent} setData={setHobbies} setSummary={setSummary} />
                     </div>
-                    <div className={`${component === 6 ? "block" : "hidden"} animatedT`}>
+                    <div className={`${component === 6 ? "block overflow-y-auto" : "hidden"} animatedT`}>
                         <TemplateSelectionPage setcomp={setComponent} submit={{ personal, education, experience, projects, hobbies, summary }} set={props.set} />
                     </div>
                 </div>
