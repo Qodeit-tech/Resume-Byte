@@ -46,7 +46,7 @@ const createPdf = catchAsync(async (req, res, next) => {
 
         const openai = new OpenAIApi(configuration);
 
-        const project_desc = `improve the following paragraph "${data.summary}"`;
+        const project_desc = `mprove the paragraph content and re-write it to look more professional, it's for bio section in my resume "${data.summary}"`;
         const optimized_project_desc = await openai.createCompletion({
             model: 'text-davinci-003',
             prompt: project_desc,
@@ -59,7 +59,7 @@ const createPdf = catchAsync(async (req, res, next) => {
 
         // Send descriptions to OpenAI API for optimization
         for (const project of data.experience) {
-            const project_desc = `improve the following paragraph "${project.description}"`;
+            const project_desc = `Improve the paragraph content and re-write it to look more professional, it's for my resume"${project.description}"`;
             const optimized_project_desc = await openai.createCompletion({
                 model: 'text-davinci-003',
                 prompt: project_desc,
@@ -73,7 +73,7 @@ const createPdf = catchAsync(async (req, res, next) => {
         }
         // // // For projects description
         for (const project of data.projects) {
-            const project_desc = `improve the following paragraph "${project.description}"`;
+            const project_desc = `Improve the paragraph content and re-write it to look more professional, it's for my resume"${project.description}"`;
             const optimized_project_desc = await openai.createCompletion({
                 model: 'text-davinci-003',
                 prompt: project_desc,
@@ -171,7 +171,7 @@ const orderController = catchAsync(async (req, res, next) => {
         // receipt: "order_rcptid_11"
     };
     try {
-        instance.orders.create(options, function(err, order) {
+        instance.orders.create(options, function (err, order) {
             console.log(order);
 
             res.status(200).json({
