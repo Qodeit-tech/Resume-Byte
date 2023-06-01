@@ -1,36 +1,40 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import "./ProAcc.css";
 import BlueDash from "../blue-dash";
 import { BiEdit } from "react-icons/bi";
-
-import signup from "../../images/form/signup.jpg";
-import create from "../../images/form/create.jpg";
-import download from "../../images/form/download.jpg";
-
+import { Link } from "react-router-dom";
+import signup from "../../images/form/signup.png";
+import create from "../../images/form/create.png";
+import download from "../../images/form/download.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 function ProAcc() {
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []);
   return (
     <div className="backfooter process">
       <div className="container ">
-        <div className="row py-5 txt d-flex justify-content-center">
-          <div className="col-lg-8 col-md-12 col-sm-12 pt-4">
+        <div className="py-5 row txt d-flex justify-content-center">
+          <div className="pt-4 col-lg-8 col-md-12 col-sm-12">
             <h1>Create perfect resumes for the modern job market</h1>
             <p>
               Creating a resume has never been this easy! In three simple steps,
               create the perfect document to impress hiring managers and
               employers. Minimum time, maximum professional quality.
             </p>
-            <button className="text-white bluebg p-3">Create My Resume</button>
+            <button className="p-3 text-white bluebg"><Link to="/build-resume" className="text-white">Create My Resume</Link></button>
           </div>
         </div>
         <div className="row whitebg ">
           <div className="row">
             <ul
-              className="nav nav-tabs overflow-hidden w-75 "
+              className="overflow-hidden nav nav-tabs w-75 "
               id="myTab"
               role="tablist"
             >
               <li
-                className="nav-item col-lg-4 col-md-4 col-sm-4  "
+                className="nav-item col-lg-4 col-md-4 col-sm-4 "
                 role="presentation"
               >
                 <button
@@ -95,9 +99,12 @@ function ProAcc() {
               aria-labelledby="home-tab"
               tabindex="0"
             >
-              <div className="row py-5">
-                <div className="col-lg-6 col-md-12 col-sm-12 py-5">
-                  <h4 className=" py-2">Your First Step</h4>
+              <div className="py-5 row">
+                <div className="py-5 col-lg-6 col-md-12 col-sm-12" data-aos="fade-right"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500">
+                  <h4 className="py-2 ">Your First Step</h4>
                   <p className="fs">
                     Lorem Duis aute irure dolor reprehenderit in voluptate velit
                     esse cillum dolore eu fugiat nulla pariatur malesuada
@@ -107,7 +114,10 @@ function ProAcc() {
                   </p>
                 </div>
                 <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
-                  <img className="img" src={signup} />
+                  <img className="img vert-move" alt=" " src={signup} data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500"/>
                 </div>
               </div>
             </div>
@@ -118,9 +128,12 @@ function ProAcc() {
               aria-labelledby="profile-tab"
               tabindex="0"
             >
-              <div className="row py-5">
-                <div className="col-lg-6  col-md-12 col-sm-12 py-5">
-                  <h4 className=" py-2">Your second Step</h4>
+              <div className="py-5 row">
+                <div className="py-5 col-lg-6 col-md-12 col-sm-12" data-aos="fade-right"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500">
+                  <h4 className="py-2 ">Your second Step</h4>
                   <p className="fs">
                     Lorem Duis aute irure dolor reprehenderit in voluptate velit
                     esse cillum dolore eu fugiat nulla pariatur malesuada
@@ -129,8 +142,11 @@ function ProAcc() {
                     lacinia consectetur lacinia
                   </p>
                 </div>
-                <div className="col-lg-6  col-md-12 col-sm-12 d-flex justify-content-center">
-                  <img className="img" src={create} />
+                <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
+                  <img className="img vert-move" src={create} alt=" " data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500"/>
                   {/* <BiEdit className={iconClasses} />, */}
                 </div>
               </div>
@@ -142,9 +158,12 @@ function ProAcc() {
               aria-labelledby="contact-tab"
               tabindex="0"
             >
-              <div className="row py-5">
-                <div className="col-lg-6 col-md-12 col-sm-12 py-5">
-                  <h4 className=" py-2">Your third Step</h4>
+              <div className="py-5 row">
+                <div className="py-5 col-lg-6 col-md-12 col-sm-12" data-aos="fade-right"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500">
+                  <h4 className="py-2 ">Your third Step</h4>
                   <p className="fs">
                     Lorem Duis aute irure dolor reprehenderit in voluptate velit
                     esse cillum dolore eu fugiat nulla pariatur malesuada
@@ -153,8 +172,11 @@ function ProAcc() {
                     lacinia consectetur lacinia
                   </p>
                 </div>
-                <div className="col-lg-6  col-md-12 col-sm-12 d-flex justify-content-center ">
-                  <img className="img" src={download} />
+                <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center " >
+                  <img className="img vert-move" src={download}  alt=" " data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500"/>
                 </div>
               </div>
             </div>

@@ -28,14 +28,14 @@ export default function SchoolBlock(props) {
     return (
         <>
             <div className='flex flex-col md:flex-row items-center justify-between'>
-                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="school" errmsg="invalid name" isComp placeholder="abc jr clg" set={setSchool} /></div>
-                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="degree" errmsg="invalid degree" isComp placeholder="b.tech" set={setDegree} /></div>
-                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="marks" errmsg="invalid marks" isComp placeholder="xx.xx%" set={setMarks} /></div>
-                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="discipline" errmsg="invalid" isComp placeholder="discipline" set={setDiscipline} /></div>
+                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="School" errmsg="invalid name" isComp placeholder="abc jr clg" set={setSchool} /></div>
+                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Degree" errmsg="invalid degree" isComp placeholder="b.tech" set={setDegree} /></div>
+                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Marks" errmsg="invalid marks" isComp placeholder="xx.xx%" set={setMarks} /></div>
+                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Discipline" errmsg="invalid" isComp placeholder="discipline" set={setDiscipline} /></div>
             </div>
             <div className='flex flex-col md:flex-row items-center justify-between'>
-                <div className='w-[100%] md:w-[47%] h-[80px]'><InputControl type="date" isComp field="start date" errmsg="invalid date" placeholder="dd-mm-yyyy" set={setStartDate} /></div>
-                <div className='w-[100%] md:w-[47%] h-[80px]'><InputControl type="date" isComp field="end date" errmsg="invalid date" placeholder="dd-mm-yyyy" set={setEndDate} /></div>
+                <div className='w-[100%] md:w-[47%] h-[80px]'><InputControl type="date" isComp field="Start Date" errmsg="invalid date" placeholder="dd-mm-yyyy" set={setStartDate} /></div>
+                <div className='w-[100%] md:w-[47%] h-[80px]'><InputControl type="date" isComp field="End Date" errmsg="invalid date" placeholder="dd-mm-yyyy" set={setEndDate} /></div>
             </div>
             <div className='w-full'>
                 <div className='w-[100px]' onClick={handleSubmit}>

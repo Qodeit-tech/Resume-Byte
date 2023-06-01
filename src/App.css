@@ -1,3 +1,35 @@
 .white {
   color: white;
 }
+.loader {
+  border: 8px solid #f3f3f3; /* Light gray border */
+  border-top: 8px solid #3498db; /* Blue border on top */
+  border-radius: 50%; /* Rounded border */
+  width: 60px; /* Width and height of the loader */
+  height: 60px;
+  animation: spin 1s linear infinite; /* Apply the spin animation */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); } /* Start position of the animation */
+  100% { transform: rotate(360deg); } /* End position of the animation */
+}
+img.vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+img.vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+a{
+  text-decoration: none !important;
+}

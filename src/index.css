@@ -10,7 +10,10 @@
   font-family: forum;
   src: url("./fonts/forum/Forum-Regular.ttf");
 }
-
+#video{
+  position: fixed;
+  z-index: -1;
+}
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;

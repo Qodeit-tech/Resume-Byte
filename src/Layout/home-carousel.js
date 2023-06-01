@@ -27,14 +27,14 @@
 //             {i === activeCarousel && (
 //               <div
 //                 key={i}
-//                 className="relative top-0 grid place-items-center h-75vh w-full overflow-hidden"
+//                 className="relative top-0 grid w-full overflow-hidden place-items-center h-75vh"
 //               >
-//                 <div className="flex flex-col items-center gap-16 z-30 text-white w-fit">
-//                   <div className="flex flex-col text-center items-center">
-//                     <p className="font-bold text-xl lg:text-4xl w-3/5">
+//                 <div className="z-30 flex flex-col items-center gap-16 text-white w-fit">
+//                   <div className="flex flex-col items-center text-center">
+//                     <p className="w-3/5 text-xl font-bold lg:text-4xl">
 //                       {dataObj.heading}
 //                     </p>
-//                     <p className="font-bold text-sm lg:text-lg">
+//                     <p className="text-sm font-bold lg:text-lg">
 //                       {" "}
 //                       &#8211; {dataObj.headingBy}
 //                     </p>
@@ -56,7 +56,7 @@
 //                 </div>
 //                 <div className={`absolute top-0 h-full lg:w-full`}>
 //                   <img
-//                     className="h-full lg:w-full  object-cover"
+//                     className="object-cover h-full lg:w-full"
 //                     src={dataObj.image}
 //                     alt={dataObj.imageName}
 //                   />
@@ -73,7 +73,7 @@
 //           </Fragment>
 //         );
 //       })}
-//       <div className="absolute flex lg:flex-col gap-1 bottom-5 left-1/2 -translate-x-1/2 lg:items-end lg:justify-center lg:translate-x-0 lg:top-1/2 lg:-translate-y-1/2 z-50 lg:right-10">
+//       <div className="absolute z-50 flex gap-1 -translate-x-1/2 lg:flex-col bottom-5 left-1/2 lg:items-end lg:justify-center lg:translate-x-0 lg:top-1/2 lg:-translate-y-1/2 lg:right-10">
 //         {new Array(data.length).fill("").map((_, i) => (
 //           <div
 //             key={i}
@@ -92,11 +92,34 @@ import { useState, useEffect } from "react";
 import resume1 from "../images/resume1.jpeg";
 import resume2 from "../images/resume2.jpg";
 import resume3 from "../images/resume3.jpg";
+import Testimonials from "./testimonials";
+import ServiceBox from "../Components/service/service";
+import AboutUs from "./about-us";
+import Guide from "../Components/guide/Guide";
+import Templates from "./templates";
+import ResumeShortlistedBy from "./resume-shortlisted-by";
+import Createcover from "../Components/createcover/Createcover";
+import Cvex from "../Components/CvEx/Cvex";
+import Feature from "../Components/Features/Feature";
+import ResumeEx from "../Components/ResumeExample/ResumeEx";
+import Process from "./process";
+import Blog from "./blog";
+import Faq from "../Components/faq/Faq";
+import Join from "../Components/Join/Join";
+import ContactUs from "./contact-us";
+import { Link } from "react-router-dom";
 import "../index.css";
 import halftemp from "../images/halftemp.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const backgroundImageUrls = [resume1, resume2, resume3];
 const HomeCarousel = () => {
   const [backgroundIndex, setBackgroundIndex] = useState(0);
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []);
+
+  // window.scrollTo(0, 0);
 
   useEffect(() => {
     // Set an interval to change the background image every 2 seconds
@@ -141,11 +164,14 @@ const HomeCarousel = () => {
   ];
 
   const styles = {
-    // height: "100vh",
-    // backgroundImage: `url(${backgroundImageUrl})`,
+    height: "100vh",
+    backgroundImage: `url(${backgroundImageUrl})`,
+    //  backgroundColor:'#000000c9',
+    // backgroundColor:"rgb(239, 246, 255)" ,
     // backgroundImage: "linear-gradient(to right, #ffc8dd, #b295f7)",
     // backgroundImage: "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
-    backgroundColor: "#eff6ff",
+    // backgroundColor: "#eff6ff",
+    // backgroundImage:`url("../images/videoback.mp4")`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     transition: "all 700ms ease-in-out",
@@ -154,31 +180,34 @@ const HomeCarousel = () => {
   };
 
   return (
+    <>
+   
     <div style={styles} id="home">
       {/* {carouselData.map((item, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      width:"100%",
-                      height:"100%",
-                      display:"flex",
-                      flexDirection:"column",
-                      justifyContent:"center",
-                      alignItems:"center",
-                      zIndex:"10"
-                    }}
-                  >
-                    <h2 style={{ fontSize: "5rem", marginBottom: "1rem" , zIndex:"11", color:"red"}}>
-                      {item.heading}
-                    </h2>
-                    <p>{item.headingBy}</p>
-                  </div>
-                ))} */}
+                <div
+                  key={index}
+                  style={{
+                    width:"100%",
+                    height:"100%",
+                    display:"flex",
+                    flexDirection:"column",
+                    justifyContent:"center",
+                    alignItems:"center",
+                    zIndex:"10"
+                  }}
+                >
+                  <h2 style={{ fontSize: "5rem", marginBottom: "1rem" , zIndex:"11", color:"red"}}>
+                    {item.heading}
+                  </h2>
+                  <p>{item.headingBy}</p>
+                </div>
+              ))} */}
 
       <div
-        className=" text-black"
+        className="text-black "
         // className=" bg-[#252525b1] text-white"
         style={{
+          // backgroundImage:`url("../images/videoback.mp4")`,
           width: "100%",
           height: "100%",
           display: "flex",
@@ -186,14 +215,16 @@ const HomeCarousel = () => {
           justifyContent: "center",
           alignItems: "center",
           transition: "all 1s",
+          backgroundColor:"#eff6ffc9" ,
           // zIndex: "10",
         }}
       >
-        <p className="text-center text-md pt-5">ONLINE RESUME BUILDER</p>
-        <h2
-          className={
-            "italic text-2xl lg:text-4xl text-black-500 font-serif font-bold pt-2 head"
-          }
+        {/* <video autoPlay muted loop id='video'>
+          <source src="../images/videoback.mp4" type="video/mp4"></source>
+        </video> */}
+        <p className="pt-5 text-center text-md" data-aos="fade-down">ONLINE RESUME BUILDER</p>
+        <h2 data-aos="zoom-in"
+          className={"italic text-2xl lg:text-4xl text-black-500 font-serif font-bold pt-2 head"}
           style={{
             fontSize: "2.0rem",
             marginBottom: "1rem",
@@ -205,26 +236,25 @@ const HomeCarousel = () => {
         >
           {carouselData[backgroundIndex].heading}
         </h2>
-        <p className="text-center text-lg ">
+        <p className="text-lg text-center ">
           {" "}
           ~ {carouselData[backgroundIndex].headingBy}
         </p>
-        <p className="text-center text-lg py-2">
+        <p className="py-2 text-lg text-center" data-aos="zoom-in">
           Build a Job winning Perfect Resume & CV in just 5 minutes{" "}
         </p>
-        <button className="text-white bluebg p-3">Create My Resume</button>
-        <p className="text-center text-lg pt-3 pb-2">
+        <button className="p-3 text-white bluebg"><Link to="/build-resume" className="text-white">Create My Resume</Link></button>
+        <p className="pt-3 pb-2 text-lg text-center" data-aos="zoom-in">
           30,037 resumes created today
         </p>
-        <img
+        {/* <img data-aos="flip-up"
           src={halftemp}
           alt="template"
           style={{
             transition: "all 1s ease-in-out",
-          }}
-        />
+          }} /> */}
       </div>
-    </div>
+    </div><Testimonials /><ServiceBox /><AboutUs /><Guide /><Templates /><ResumeShortlistedBy /><Createcover /><Cvex /><Feature /><ResumeEx /><Process /><Blog /><Faq /><Join /><ContactUs /></>
   );
 };
 

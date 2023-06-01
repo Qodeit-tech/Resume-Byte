@@ -4,8 +4,8 @@ const FooterInfoLink = ({ title, subTitle }) => {
       <p>{title}</p>
       <div className="flex flex-col gap-1">
         {subTitle.map((linkTitle, i) => (
-          <a key={i} href="https://google.com">
-            {linkTitle}
+          <a key={i} href="https://google.com"   className="text-white text-decoration-none">
+            {linkTitle}   
           </a>
         ))}
       </div>

@@ -76,7 +76,7 @@ import natureImg from "./images/nature.jpg";
 import resume1 from "./images/resume1.jpeg";
 import resume2 from "./images/resume2.jpg";
 import resume3 from "./images/resume3.jpg";
-import Navbar from "./Layout/navbar";
+import Nav from "./Layout/navbar";
 import AboutUs from "./Layout/about-us";
 import Process from "./Layout/process";
 import Templates from "./Layout/templates";
@@ -101,9 +101,15 @@ import Feature from "./Components/Features/Feature";
 import Cvex from "./Components/CvEx/Cvex";
 import Createcover from "./Components/createcover/Createcover";
 import Guide from "./Components/guide/Guide";
-import ServiceBox from "./Layout/service-box";
+import ServiceBox from "./Components/service/service";
+import Loader from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
+import {Grid} from "react-loader-spinner";
 
 function App() {
+  // Hide the loader initially
+
+
   const [navbarDark, setNavbarDark] = useState(true);
   const [id, setId] = useState(true);
   const carouselData = [
@@ -135,7 +141,23 @@ function App() {
   // font-sans
   return (
     <div className="App font-['Open_Sans'] relative">
-      <Navbar navbarDark={navbarDark} />
+    {/* <Grid
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="grid-loading"
+  radius="12.5"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+/> */}
+     {/* <div>
+      <h1>Loading...</h1>
+      <ThreeDots type="ThreeDots" color="#00BFFF" height={80} width={80} />
+    </div> */}
+  
+
+      <Nav navbarDark={navbarDark} />
 
       {/* <Download></Download> */}
       <Routes>
@@ -147,7 +169,7 @@ function App() {
                 data={carouselData}
                 setNavbarDark={setNavbarDark}
               ></HomeCarousel>
-              <Testimonials />
+              {/* <Testimonials />
               
               <ServiceBox/>
               
@@ -166,12 +188,19 @@ function App() {
               <Blog />
               <Faq />
               <Join />
-              <ContactUs />
-              <Footer />
+              <ContactUs /> */}
+             
             </Fragment>
           }
         />
+        <Route path={"/home"} element={<HomeCarousel />} />
+        <Route path={"/services"} element={<ServiceBox />} />
+        <Route path={"/about"} element={<AboutUs/>}/>
+        <Route path={"/process"} element={<Process/>}/>
         <Route path={"/create-resume"} element={<CreateResume />} />
+       <Route path={"/features"} element={<Feature/>}/>
+       <Route path={"/blogs"} element={<Blog/>}/>
+       <Route path={"/contact"} element={<ContactUs/>}/>
         <Route
           path={"/build-resume"}
           element={
@@ -197,6 +226,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

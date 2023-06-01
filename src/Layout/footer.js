@@ -1,7 +1,7 @@
 import Section from "../Components/section";
 import SocialLinks from "../Components/footer/social-link";
 import FooterInfoLink from "../Components/footer/footer-info-link";
-
+import {Link} from "react-router-dom";
 const Footer = () => {
   const jobSeeker = {
     title: "JOB SEEKERS",
@@ -48,35 +48,36 @@ background-image: radial-gradient(#3f3f3f 0.8px, #333 0.8px);
 background-size: 16px 16px; */
 
   return (
-    <div className=" text-white py-8 backfooter1">
+    <div className="py-8 text-white  backfooter1">
       <Section classname="py-8">
         <div className="row ">
-          <h5 className="head2"> Create a Resume</h5>
+          <h5 className="head2"><Link to="/build-resume" className="text-white text-decoration-none"> Create a Resume</Link></h5>
         </div>
         <hr></hr>
-        <div className="row py-5">
+        <div className="py-5 row">
           <SocialLinks />
         </div>
         <div className="row">
-          <div className="col-lg-3 col-md-6 col-sm-6 text-center">
+          <div className="text-center col-lg-3 col-md-6 col-sm-6 text-white text-decoration-none">
             <FooterInfoLink
               title={jobSeeker.title}
               subTitle={jobSeeker.subTitle}
             />
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 text-center">
+          <div className="text-center col-lg-3 col-md-6 col-sm-6 text-white text-decoration-none">
             <FooterInfoLink
+          
               title={careerResources.title}
               subTitle={careerResources.subTitle}
             />
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 text-center">
+          <div className="text-center col-lg-3 col-md-6 col-sm-6 text-white text-decoration-none">
             <FooterInfoLink
               title={ourCompany.title}
               subTitle={ourCompany.subTitle}
             />
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-6 text-center">
+          <div className="text-center col-lg-3 col-md-6 col-sm-6 text-white text-decoration-none">
             <FooterInfoLink title={support.title} subTitle={support.subTitle} />
           </div>
         </div>

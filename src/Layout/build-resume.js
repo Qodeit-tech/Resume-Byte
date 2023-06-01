@@ -154,7 +154,7 @@ function FormExample6() {
       <div className="card mt-[80px] w-[470px] rounded-md shadow-md bg-white p-5">
         <div className='flex justify-center items-center'>
           {
-            formArray.map((v, i) => <><div className={`w-[35px] my-3 text-white rounded-full ${formNo - 1 === i || formNo - 1 === i + 1 || formNo === formArray.length ? 'bg-blue-500' : 'bg-slate-400'} h-[35px] flex justify-center items-center`}>
+            formArray.map((v, i) => <><div className={`w-[35px] my-3 text-white rounded-full ${formNo - 1 === i || formNo - 1 === i + 1 || formNo === formArray.length ? 'bg-blue-500' : 'bg-slate-400'} h-[35px] flex justify-center items-center capitalize`}>
               {v}
             </div>
               {
@@ -167,26 +167,26 @@ function FormExample6() {
           formNo === 1 && <div>
             <div className='flex flex-col mb-2'>
               <label htmlFor="name">Name</label>
-              <input value={state.name} onChange={inputHandle} className='p-2 border border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="text" name='name' placeholder='name' id='name' />
+              <input value={state.name} onChange={inputHandle} className='p-2 border border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md capitalize' type="text" name='name' placeholder='Name' id='name' />
             </div>
             <div className='flex flex-col mb-2'>
               <label htmlFor="dept">City</label>
-              <input value={state.dept} onChange={inputHandle} className='p-2 border border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="text" name='dept' placeholder='City' id='city' />
+              <input value={state.dept} onChange={inputHandle} className='p-2 border capitalize border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="text" name='dept' placeholder='City' id='city' />
             </div>
             <div className='flex flex-col mb-2'>
               <label htmlFor="dept">State</label>
-              <input value={state.state} onChange={inputHandle} className='p-2 border border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="text" name='state' placeholder='State' id='state' />
+              <input value={state.state} onChange={inputHandle} className='p-2 border capitalize border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="text" name='state' placeholder='State' id='state' />
             </div>
             <div className='flex flex-col mb-2'>
               <label htmlFor="dept">Contact No</label>
-              <input value={state.contact} onChange={inputHandle} className='p-2 border border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="text" name='contact' placeholder='Contact No ' id='contact' />
+              <input value={state.contact} onChange={inputHandle} className='p-2 border capitalize border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="text" name='contact' placeholder='Contact No ' id='contact' />
             </div>
             <div className='flex flex-col mb-2'>
               <label htmlFor="batch">Batch</label>
-              <input value={state.batch} onChange={inputHandle} className='p-2 border border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="number" name='batch' placeholder='batch' />
+              <input value={state.batch} onChange={inputHandle} className='p-2 border capitalize border-slate-400 mt-1 outline-0 focus:border-blue-500 rounded-md' type="number" name='batch' placeholder='Batch' />
             </div>
             <div className='mt-4 flex justify-center items-center'>
-              <button onClick={next} className='px-3 py-2 text-lg rounded-md w-full text-white bg-blue-500'>Next</button>
+              <button onClick={next} className='px-3 py-2 text-lg rounded-md w-full capitalize  text-white bg-blue-500'>Next</button>
             </div>
           </div>
         }

@@ -1,7 +1,7 @@
 import Service from "../Components/service/service";
 import optimise from "../images/image-removebg-preview (2).png";
-import ats from "../images/ats.jpg";
-import custom from "../images/custom.jpg";
+import ats from "../images/ats.png";
+import custom from "../images/custom.png";
 const ServiceBox = () => {
   const serviceContent = [
     {
@@ -29,10 +29,10 @@ const ServiceBox = () => {
 
   return (
     <div
-      className=" relative flex flex-col gap-2  justify-self-center lg:flex-row  lg:gap-5 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2  items-center transition-all"
-      id="services"
+      // className="relative flex flex-col items-center gap-2 transition-all  justify-self-center lg:flex-row lg:gap-5 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2"
+      // id="services"
     >
-      {serviceContent.map(({ image, title, info, color }, i) => (
+      {/* {serviceContent.map(({ image, title, info, color }, i) => (
         <Service
           key={i}
           image={image}
@@ -40,7 +40,7 @@ const ServiceBox = () => {
           info={info}
           color={color}
         />
-      ))}
+      ))} */}
     </div>
   );
 };

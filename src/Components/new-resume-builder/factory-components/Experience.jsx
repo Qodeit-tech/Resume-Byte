@@ -8,7 +8,7 @@ export default function ExperienceDetails(props) {
     // const [check, setCkeck] = useState(false)
     const [data, setData] = useState([])
     const [check, setCheck] = useState(true)
-    const [saved, setSaved] = useState(false)
+    const [saved, setSaved] = useState(true)
 
     const handleSubmit = () => {
         if (saved) {
@@ -17,7 +17,7 @@ export default function ExperienceDetails(props) {
             setCheck(true)
         }
         else {
-            setCheck(false)
+            setCheck(true)
         }
     }
     const handleBack = () => {
@@ -30,6 +30,13 @@ export default function ExperienceDetails(props) {
         setSaved(false);
     }
 
+    const removeBlock = (index) => {
+        setArray(prevArray => {
+            const updatedArray = [...prevArray];
+            updatedArray.splice(index, 1);
+            return updatedArray;
+        });
+    };
     return (
         <div className='flex flex-col w-full justify-center'>
             <div className='flex items-center justify-center text-[30px] md:mb-4'>
@@ -45,16 +52,17 @@ export default function ExperienceDetails(props) {
                     );
                 })
             }
-            <div className='w-full flex justify-center my-2'>
-                <div className={`text-[20px] ${saved ? "block" : "hidden"}`} onClick={addBlock}><Button text="add"></Button></div>
+            <div className='w-full flex justify-between my-3'>
+                <div className={`text-[20px] ${saved ? "block" : "hidden"}`} onClick={addBlock}><Button text="Add"></Button></div>
+                <div className={`text-[20px] ${saved ? "block" : "hidden"}`} onClick={removeBlock}><Button text="Remove"></Button></div>
             </div>
 
             <div className='w-full flex justify-between gap-x-8'>
                 <div className='flex gap-x-8 w-[100px]' onClick={handleBack}>
-                    <Button text="back" />
+                    <Button text="Back" />
                 </div>
                 <div className='flex flex-col gap-x-8 ' onClick={handleSubmit}>
-                    <Button text="next" />
+                    <Button text="Next" />
                     <div className={`text-red-500 ${!check ? "block" : "hidden"} text-[12px]`}>Something is wrong</div>
                 </div>
             </div>

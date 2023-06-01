@@ -6,15 +6,44 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = ({ navbarDark }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const scrollTo = [
-    "Home",
-    "Services",
-    "About",
-    "Process",
-    "Features",
-    "Blogs",
-    "Contact",
+  //  "Home",
+  //   "Services",
+  //   "About",
+  //   "Process",
+  //   "Features",
+  //   "Blogs",
+  //   "Contact",
   ];
   const newPageLinks = [
+    {
+      anchorName:"Home",
+      link:"/home",
+    },
+    {
+      anchorName:"Services",
+      link:"/services",
+    },
+    {
+      anchorName:"About",
+      link:'/about',
+
+    },
+    {
+      anchorName:"Process",
+      link:"/process",
+    },
+    {
+      anchorName:"Features",
+      link:'/features',
+    },
+    {
+      anchorName:"Blogs",
+      link:"/blogs",
+    },
+    {
+      anchorName:"Contact",
+      link:'/contact',
+    },
     {
       anchorName: "Build Resume",
       link: "/build-resume",
@@ -31,7 +60,7 @@ const Navbar = ({ navbarDark }) => {
           navbarDark ? "shadow-md" : ""
         } `}
       >
-        <div className="flex px-5 justify-between lg:justify-between lg:py-22 items-center">
+        <div className="flex items-center justify-between px-5 lg:justify-between lg:py-22">
           <p className="font-semibold mt-[1rem] lg:w-1/4 text-left">Logo</p>
 
           <div
@@ -53,6 +82,7 @@ const Navbar = ({ navbarDark }) => {
                 className="px-2 py-1 hover:text-white no-underline hover:bg-[#1d4ed8] rounded-md duration-200"
                 key={i}
                 to={`/#${link.toLowerCase()}`}
+              
               >
                 {link}
               </Link>
@@ -82,6 +112,7 @@ const Navbar = ({ navbarDark }) => {
           <a
             key={i}
             href={`/#${link.toLowerCase()}`}
+           
             className={`border-1 w-full text-center text-white p-2 rounded-md no-underline border-slate-700 border-opacity-60`}
           
           >

@@ -1,12 +1,12 @@
 import React from "react";
 import "./Cvex.css";
-
+import { Link } from "react-router-dom";
 function Cvex() {
   return (
     <div className="backfooter">
       <div className="container ">
-        <div className="row py-5 txt d-flex justify-content-center">
-          <div className="col-lg-8 col-md-12 col-sm-12 pt-4">
+        <div className="py-5 row txt d-flex justify-content-center">
+          <div className="pt-4 col-lg-8 col-md-12 col-sm-12">
             <h1>
               User-friendly. Professional. Effective. Try our cover letter
               builder today!
@@ -18,10 +18,10 @@ function Cvex() {
               our pre-generated phrases, choose a design, fill in your details
               and ideas. Fast and simple.
             </p>
-            <button className="text-white bluebg p-3">Try It Now</button>
+            <button className="p-3 text-white bluebg"><Link to="/build-resume" className="text-white">Try It Now</Link></button>
             &nbsp; &nbsp; &nbsp;
-            <button className="text-white bluebg p-3">
-              Cover Letter Examples
+            <button className="p-3 text-white bluebg">
+            <Link to="/build-resume" className="text-white"> Cover Letter Examples</Link>
             </button>
           </div>
         </div>

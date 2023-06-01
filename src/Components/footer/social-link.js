@@ -100,7 +100,7 @@ const SocialLinks = () => {
               height: "40px",
               borderRadius: "50%",
               backgroundColor: "#333333",
-              color: "white",
+              color: "white ",
               transition: "background-color 0.5s ease, box-shadow 0.5s ease",
               textDecoration: "none",
             }}

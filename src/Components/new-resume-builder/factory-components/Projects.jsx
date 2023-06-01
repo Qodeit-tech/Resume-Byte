@@ -32,8 +32,9 @@ export default function ProjectDetails(props) {
 
     return (
         <div className='flex flex-col w-full justify-center'>
-            <div className='flex items-center justify-center text-[30px] md:mb-4'>
+            <div className='flex flex-col items-center justify-center text-[30px] md:mb-4'>
                 Project Details
+                <div className="text-[12px]">Hit Save !</div>
             </div>
             {
                 array.map((ele, i) => {
@@ -50,10 +51,10 @@ export default function ProjectDetails(props) {
             </div>
             <div className='w-full flex justify-between gap-x-8'>
                 <div className='flex gap-x-8 w-[100px]' onClick={handleBack}>
-                    <Button text="back" />
+                    <Button text="Back" />
                 </div>
-                <div className='flex flex-col gap-x-8 ' onClick={handleSubmit}>
-                    <Button text="next" />
+                <div className='flex flex-col ml-auto gap-x-8 ' onClick={handleSubmit}>
+                    <Button text="Next " />
                     <div className={`text-red-500 ${!check ? "block" : "hidden"} text-[12px]`}>Something is wrong</div>
                 </div>
             </div>

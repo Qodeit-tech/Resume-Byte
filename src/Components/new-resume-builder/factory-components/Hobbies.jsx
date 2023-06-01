@@ -29,20 +29,20 @@ export default function HobbiesDetails(props) {
                 Hobbies
             </div>
             <div className='flex items-center justify-between'>
-                <div className='w-full h-[80px]'><InputControl field="hobbies" isComp placeholder="volleyball , football" set={setHobbies} /></div>
+                <div className='w-full h-[80px]'><InputControl field="Hobbies" isComp placeholder="volleyball , football" set={setHobbies} /></div>
             </div>
             <div className='flex items-center justify-between'>
-                <div className='w-full min-h-[80px]'><InputControl type="textarea" field="summary" isComp placeholder="summary" set={setSummary} /></div>
+                <div className='w-full min-h-[80px]'><InputControl type="textarea" field="Summary" isComp placeholder="Summary" set={setSummary} /></div>
             </div>
 
 
             <div className='w-full mt-8'>
                 <div className='flex justify-between gap-x-8'>
                     <div onClick={handleBack}>
-                        <Button text="back" />
+                        <Button text="Back" />
                     </div>
                     <div className='flex gap-x-8 w-[100px]' onClick={handleSubmit}>
-                        <Button text="next" />
+                        <Button text="Next" />
                         <div className={`text-red-500 ${!check ? "block" : "hidden"} text-[12px]`}>Something is wrong</div>
                     </div>
                 </div>

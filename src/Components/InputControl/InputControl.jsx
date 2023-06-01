@@ -1,31 +1,31 @@
 import React, { useRef, useState } from 'react'
 
 const valid = (field, value) => {
-  if (field === "name" || field === "summary" || field === "school" || field === "degree" || field === "discipline" || field === "title" || field === "organization" || field === "position" || field === "description") {
+  if (field === "Name" || field === "Summary" || field === "School" || field === "Degree" || field === "Discipline" || field === "Title" || field === "Organization" || field === "Position" || field === "Description") {
     if (value.length > 1) {
       return true;
     }
   }
-  else if (field === "email") {
+  else if (field === "Email") {
     if (value.search("@") >= 0) {
       return true;
     }
   }
-  else if (field === "github" || field === "linkedin" || field === "link") {
-    if (value.startsWith("https://") || value === "") {
+  else if (field === "Github" || field === "Linkedin" || field === "Link") {
+    if (value === "") {
       return true;
     }
   }
-  else if (field === "mobile") {
+  else if (field === "Mobile") {
     if (!isNaN(value)) {
       return true;
     }
   }
-  else if (field === "skills" || field === "hobbies" || field === "start date" || field === "end date") {
+  else if (field === "Skills" || field === "Hobbies" || field === "Start Date" || field === "End Date") {
     return true
   }
-  else if (field === "marks") {
-    if (value.search("%") >= 0) {
+  else if (field === "Marks") {
+    if (!isNaN(value)) {
       return true;
     }
   }
