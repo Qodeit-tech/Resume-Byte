@@ -27,7 +27,7 @@ export default function ProjectBlock(props) {
         <>
             <div className='flex flex-col md:flex-row items-center justify-between'>
                 <div className='w-[100%] md:w-[48%] h-[80px]'><InputControl field="Title" errmsg="invalid" isComp placeholder="abc creator" set={setTitle} /></div>
-                <div className='w-[100%] md:w-[48%] h-[80px]'><InputControl field="Link" errmsg="invalid" isComp placeholder="abc.github.com (Optional)" set={setLink} /></div>
+                <div className='w-[100%] md:w-[48%] h-[80px]'><InputControl field="Link" errmsg="invalid" placeholder="abc.github.com (Optional)" set={setLink} /></div>
             </div>
             <div className='flex items-center justify-between'>
                 <div className='w-full min-h-[80px]'><InputControl type="textarea" field="Description" isComp placeholder="Description" set={setDescription} /></div>

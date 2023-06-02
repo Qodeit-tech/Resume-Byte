@@ -56,7 +56,7 @@ const Navbar = ({ navbarDark }) => {
       <div
         // className={`bg-[#0e0f1f] fixed w-full top-0 z-50 text-white ${navbarDark ? "shadow-md" : ""
         //   } `}
-        className={` min-h-[3rem] fixed w-full top-0 z-10000 whitebg ${
+        className={` min-h-[3rem] fixed w-full top-0 z-[100] whitebg ${
           navbarDark ? "shadow-md" : ""
         } `}
       >

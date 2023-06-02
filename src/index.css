@@ -194,3 +194,7 @@ code {
 .backfooter1 {
   background-color: #0f141e;
 }
+a{
+  text-decoration: none !important;
+
+}

@@ -4,7 +4,7 @@ import Heading from "../heading";
 const ContactUsHeading = () => {
   return (
     <div>
-      <div className="flex flex-col gap-2 items-center lg:items-start lg:pr-44">
+      <div className="flex flex-col items-center gap-2 py-5 lg:items-start lg:pr-44">
         {/* <Heading
           text={"CONTACT US"}
           shadowText="before:content-['Contact_Us']"

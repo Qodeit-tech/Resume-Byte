@@ -6,60 +6,61 @@ import { useState } from 'react';
 import withoutWater from "./templates/template1.png"
 import withWater from "./templates/watermark.png"
 
-const handleOpenRazorPay = (order, id) => {
-    const options = {
-        key: "rzp_test_QDoWkriK00mgyb", // Enter the Key ID generated from the Dashboard
-        // key: "rzp_test_hCyWsBSF5NbM04", // Enter the Key ID generated from the Dashboard
-        amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        currency: order.currency,
-        name: "Qodeit",
-        // "description": "Test Transaction",
-        // "image": "https://example.com/your_logo",
-        order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        handler: function (response) {
-            console.log(response)
-            axios({
-                method: "POST",
-                url: "https://resume-byte-backend.onrender.com/verify",
-                data: {
-                    response, id
-                }
-            }).then((res) => {
-                console.log("payment done")
-
-            }).catch(() => {
-                console.log("payment error")
-            })
-        }
-    }
-    const razorPay = new window.Razorpay(options)
-    razorPay.open()
-}
-
-const handlePayment = async (id) => {
-    const amount = 1;
-    await axios(
-        {
-            method: "POST",
-            url: "https://resume-byte-backend.onrender.com/orders",
-            // apikey:"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",
-            data: { amount }
-        }).then((res) => {
-            console.log(res)
-            const order = res.data.order
-            console.log(order)
-            handleOpenRazorPay(order, id)
-        }).catch((err) => {
-            console.log(err);
-        })
-
-}
-
 
 
 export default function Download(props) {
     const [showModal, setShowModal] = useState(false);
 
+
+    const handleOpenRazorPay = (order, id) => {
+        const options = {
+            key: "rzp_test_QDoWkriK00mgyb", // Enter the Key ID generated from the Dashboard
+            // key: "rzp_test_hCyWsBSF5NbM04", // Enter the Key ID generated from the Dashboard
+            amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            currency: order.currency,
+            name: "Qodeit",
+            // "description": "Test Transaction",
+            // "image": "https://example.com/your_logo",
+            order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            handler: function (response) {
+                console.log(response)
+                axios({
+                    method: "POST",
+                    url: "https://resume-byte-backend.onrender.com/verify",
+                    data: {
+                        response, id
+                    }
+                }).then((res) => {
+                    console.log("payment done")
+                    setShowModal(true)
+
+                }).catch(() => {
+                    console.log("payment error")
+                })
+            }
+        }
+        const razorPay = new window.Razorpay(options)
+        razorPay.open()
+    }
+
+    const handlePayment = async (id) => {
+        const amount = 1;
+        await axios(
+            {
+                method: "POST",
+                url: "https://resume-byte-backend.onrender.com/orders",
+                // apikey:"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",
+                data: { amount }
+            }).then((res) => {
+                console.log(res)
+                const order = res.data.order
+                console.log(order)
+                handleOpenRazorPay(order, id)
+            }).catch((err) => {
+                console.log(err);
+            })
+
+    }
     const handleDownload = (id) => {
         axios({
             method: "POST",

@@ -39,11 +39,11 @@ const Blog = () => {
   ];
 
   return (
-    <div className="bg-blue-50" id="blogs">
+    <div className="py-5 bg-blue-50" id="blogs">
       {/* // <div className="backpink" id="blogs"> */}
       <Section classname={"py-10 pt-20"}>
         <BlogHeading />
-        <div className="scrollbar scrollbar-h-1 scrollbar-rounded-full scrollbar-track-slate-300 scrollbar-corner-rounded-full  scrollbar-thumb-blue-600 pb-10 select-none my-4">
+        <div className="pb-10 my-4 select-none scrollbar scrollbar-h-1 scrollbar-rounded-full scrollbar-track-slate-300 scrollbar-corner-rounded-full scrollbar-thumb-blue-600">
           <div className="flex gap-7">
             {blogArr.map(({ heading, subHeading, link, image }, i) => (
               <BlogBox

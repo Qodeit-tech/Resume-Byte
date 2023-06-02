@@ -9,9 +9,9 @@ const ContactUs = () => {
     AOS.init({ duration: 1200 });
   }, []);
   return (
-    <div id="contact">
-      <Section>
-        <div className="flex flex-col items-center w-full gap-7 py-14 lg:flex-row lg:gap-60">
+    <div id="contact pt-5">
+      <Section className='pt-5'>
+        <div className="flex flex-col items-center w-full py-5 gap-7 lg:flex-row lg:gap-60">
           <ContactUsHeading  data-aos="fade-right"
      data-aos-offset="300"
      data-aos-easing="ease-in-sine"/>

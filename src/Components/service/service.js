@@ -33,9 +33,9 @@ const Service = () => {
     //     </p>
     //   </div>
     // </div>
-    <section class="text-gray-600 body-font">
-  <div class="container px-2 py-4  mx-auto">
-  <div class="flex flex-wrap -m-4 justify-content-center">
+    // <section class="text-gray-600 body-font">
+  <div class="container px-2 py-5  mx-auto text-gray-600 body-font">
+  <div class="flex flex-wrap -m-4 py-5 justify-content-center">
             <div class="xl:w-1/3 md:w-1/2 p-4" data-aos="fade-right">
         <div class=" p-6 rounded-lg grid" style={{ backgroundColor: "#eff6ff"}}>
           <img class="h-40 rounded w-full object-cover object-center mb-6" src={optimise} alt="content" className="h-auto max-w-[50%] justify-self-center vert-move" />
@@ -63,7 +63,7 @@ const Service = () => {
       </div>
     </div>
   
-</section>
+// </section>
   );
 };
 

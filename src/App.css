@@ -1,6 +1,7 @@
 .white {
   color: white;
 }
+
 .loader {
   border: 8px solid #f3f3f3; /* Light gray border */
   border-top: 8px solid #3498db; /* Blue border on top */

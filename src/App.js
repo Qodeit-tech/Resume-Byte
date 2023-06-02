@@ -71,7 +71,7 @@
 // }
 
 // export default App;
-
+import { useEffect } from "react";
 import natureImg from "./images/nature.jpg";
 import resume1 from "./images/resume1.jpeg";
 import resume2 from "./images/resume2.jpg";
@@ -109,6 +109,15 @@ import {Grid} from "react-loader-spinner";
 function App() {
   // Hide the loader initially
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Change the delay time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const [navbarDark, setNavbarDark] = useState(true);
   const [id, setId] = useState(true);
@@ -138,9 +147,16 @@ function App() {
       imgName: "resume3-img",
     },
   ];
+
+ 
+// alert('Refreshing');
+// document.getElementsByClassName("dem").innerHTML = "hi";
+
+
+  
   // font-sans
   return (
-    <div className="App font-['Open_Sans'] relative">
+    <div className="App  font-['Open_Sans'] relative" >
     {/* <Grid
   height="80"
   width="80"
@@ -151,13 +167,15 @@ function App() {
   wrapperClass=""
   visible={true}
 /> */}
-     {/* <div>
-      <h1>Loading...</h1>
-      <ThreeDots type="ThreeDots" color="#00BFFF" height={80} width={80} />
-    </div> */}
+{/* <div className="items-center w-full h-full p-5 text-center container-fluid dem" style={{ display: loading ? "block" : "none" }}>
+      <div className="container p-5">
+      <h1 className="pt-5">Loading...</h1>
+      <ThreeDots type="ThreeDots" color="#00BFFF" height={100} width={100} />
+      </div>
+    </div>  */}
   
 
-      <Nav navbarDark={navbarDark} />
+      <Nav navbarDark={navbarDark} className='pb-5'/>
 
       {/* <Download></Download> */}
       <Routes>

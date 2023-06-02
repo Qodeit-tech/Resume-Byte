@@ -5,7 +5,7 @@ import TemplateCarousel from "./template-carousel";
 
 const TemplatesSection = () => {
   return (
-    <div className="flex gap-16 py-4 pt-14">
+    <div className="flex gap-16 py-4 lg:flex-row sm:flex-col pt-14 ">
       <div className="flex flex-col mb-16 lg:items-start lg:text-start lg:justify-center ">
         <h1 className="head1">Beautiful ready-to-use resume templates</h1>
         <BlueDash />
