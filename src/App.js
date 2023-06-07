@@ -105,7 +105,7 @@ import ServiceBox from "./Components/service/service";
 import Loader from 'react-loader-spinner';
 import { ThreeDots } from 'react-loader-spinner';
 import {Grid} from "react-loader-spinner";
-
+import TemplateSelectionPage from "./Components/new-resume-builder/TemplateSelectionPage";
 function App() {
   // Hide the loader initially
 
@@ -219,6 +219,7 @@ function App() {
        <Route path={"/features"} element={<Feature/>}/>
        <Route path={"/blogs"} element={<Blog/>}/>
        <Route path={"/contact"} element={<ContactUs/>}/>
+       <Route path={"/templateselection"} element={<TemplateSelectionPage/>}/>
         <Route
           path={"/build-resume"}
           element={

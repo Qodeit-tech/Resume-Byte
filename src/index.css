@@ -198,3 +198,10 @@ a{
   text-decoration: none !important;
 
 }
+.carousel-root{
+  width:60% !important;
+}
+
+.carousel .thumb{
+  display:hide !important;
+}

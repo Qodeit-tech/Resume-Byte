@@ -29,6 +29,7 @@
     "react-icons": "^4.7.1",
     "react-loader-spinner": "^5.3.4",
     "react-progressbar": "^15.4.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-toastify": "^9.1.1",

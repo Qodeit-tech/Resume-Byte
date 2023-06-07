@@ -3,8 +3,8 @@ import React from 'react'
 import Button from '../InputControl/Button'
 import TemplateBlock from './factory-components/blocks/TemplateBlock'
 import { useState } from 'react';
-import withoutWater from "./templates/template1.png"
-import withWater from "./templates/watermark.png"
+import withoutWater from "./templates/template1.jpg"
+import withWater from "./templates/watermark.jpg"
 
 
 
@@ -85,10 +85,10 @@ export default function Download(props) {
             <div className='text-[30px] md:text-[40px] flex justify-center items-center my-4'>
                 Your resume is ready!
             </div>
-            <div className='flex flex-col md:flex-row justify-around items-center'>
+            <div className='flex flex-col items-center justify-around md:flex-row'>
                 <div className='w-[80%] md:w-[30%] flex flex-col items-center justify-center'>
                     <TemplateBlock image={withWater} />
-                    <div className='my-2 gap-y-2 flex flex-col items-center'>
+                    <div className='flex flex-col items-center my-2 gap-y-2'>
                         <div>download with watermark (free)</div>
                         <div onClick={() => handleDownload(props.id)}>
                             <Button text='download' />
@@ -97,7 +97,7 @@ export default function Download(props) {
                 </div>
                 <div className='w-[80%] md:w-[30%] flex flex-col items-center justify-center'>
                     <TemplateBlock image={withoutWater} />
-                    <div className='my-2 gap-y-2 flex flex-col items-center'>
+                    <div className='flex flex-col items-center my-2 gap-y-2'>
                         <div>download without watermark (1rs)</div>
                         <div onClick={() => handlePayment(props.id)}>
                             <Button text='download' />
@@ -107,9 +107,9 @@ export default function Download(props) {
             </div>
 
             {showModal && (
-                <div className='fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50'>
-                    <div className='bg-white p-8 rounded-md'>
-                        <div className='text-2xl font-bold mb-4'>Email Sent!</div>
+                <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50'>
+                    <div className='p-8 bg-white rounded-md'>
+                        <div className='mb-4 text-2xl font-bold'>Email Sent!</div>
                         <div className='text-center'>
                             Your resume has been Sent to you successfully.
                         </div>

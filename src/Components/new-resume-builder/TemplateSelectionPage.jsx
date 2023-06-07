@@ -3,10 +3,10 @@ import Button from '../InputControl/Button'
 import TemplateBlock from './factory-components/blocks/TemplateBlock'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import template1 from "./templates/template1.png"
-import template2 from "./templates/template2.png"
-import template3 from "./templates/template3.png"
-import template4 from "./templates/template4.png"
+import template1 from "./templates/template1.jpg"
+import template2 from "./templates/template2.jpg"
+import template3 from "./templates/template3.jpg"
+import template4 from "./templates/template4.jpg"
 import loader from "./loader.gif"
 // import pdf from 'html-pdf'
 
@@ -50,7 +50,7 @@ export default function TemplateSelectionPage(props) {
         <div>
 
             {
-                loading ? <div className='flex flex-col justify-center items-center gap-4'>
+                loading ? <div className='flex flex-col items-center justify-center gap-4'>
                     <div> creating resume ! please wait</div>
                     <div><img src={loader} alt="loader" /></div>
                 </div> :
@@ -58,7 +58,7 @@ export default function TemplateSelectionPage(props) {
                         <div className='text-[40px] w-full text-center'>
                             choose a template
                         </div>
-                        <div className='flex flex-col md:flex-row w-full justify-evenly items-center gap-y-4 flex-wrap'>
+                        <div className='flex flex-col flex-wrap items-center w-full md:flex-row justify-evenly gap-y-4'>
                             {
                                 templates.map((tem, i) => {
                                     return (
@@ -69,7 +69,7 @@ export default function TemplateSelectionPage(props) {
                                 })
                             }
                         </div>
-                        <div className='w-full flex justify-between gap-x-8'>
+                        <div className='flex justify-between w-full gap-x-8'>
                             <div className='flex gap-x-8 w-[100px]' onClick={handleBack}>
                                 <Button text="back" />
                             </div>
