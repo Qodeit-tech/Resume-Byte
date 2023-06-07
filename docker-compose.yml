@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      target: production
+    ports:
+      - 7000:7000
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - RAORPAY_KEY_ID=rzp_test_QDoWkriK00mgyb
+      - RAORPAY_KEY_SECRET=9AVkNhDSFCGVUwQC535bpPsB
+      - NODEMAILER_AUTH=chatbotusingchatgpt@gmail.com
+      - NODEMAILER_PASSWORD=zamfojpvxnqyzgop
+      - OPENAI_API_KEY=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
+      - SECRET=GI79UnTboMI7Kfpc
+      - KEY=780789430

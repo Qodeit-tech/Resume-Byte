@@ -34,7 +34,7 @@ app.use(cors({
 }));
 
 const server = app.listen(7000, () => {
-    console.log("server has been started")
+    console.log("server has been started on port 7000")
 })
 
 const createPdf = catchAsync(async (req, res, next) => {
