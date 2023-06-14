@@ -26,7 +26,7 @@ export default function Download(props) {
                 console.log(response)
                 axios({
                     method: "POST",
-                    url: "https://resume-byte-backend.onrender.com/verify",
+                    url: "https://qodeit1.southindia.cloudapp.azure.com/verify",
                     data: {
                         response, id
                     }
@@ -48,7 +48,7 @@ export default function Download(props) {
         await axios(
             {
                 method: "POST",
-                url: "https://resume-byte-backend.onrender.com/orders",
+                url: "https://qodeit1.southindia.cloudapp.azure.com/orders",
                 // apikey:"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",
                 data: { amount }
             }).then((res) => {
@@ -64,7 +64,7 @@ export default function Download(props) {
     const handleDownload = (id) => {
         axios({
             method: "POST",
-            url: "https://resume-byte-backend.onrender.com/watermarkResume",
+            url: "https://qodeit1.southindia.cloudapp.azure.com/watermarkResume",
             data: { id }
         })
             .then((res) => {
