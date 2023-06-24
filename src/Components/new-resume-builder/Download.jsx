@@ -26,7 +26,7 @@ export default function Download(props) {
                 console.log(response)
                 axios({
                     method: "POST",
-                    url: "https://qodeit1.southindia.cloudapp.azure.com/verify",
+                    url: "https://resume-byte-backend.onrender.com/verify",
                     data: {
                         response, id
                     }
@@ -48,7 +48,7 @@ export default function Download(props) {
         await axios(
             {
                 method: "POST",
-                url: "https://qodeit1.southindia.cloudapp.azure.com/orders",
+                url: "https://resume-byte-backend.onrender.com/orders",
                 // apikey:"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",
                 data: { amount }
             }).then((res) => {
@@ -64,7 +64,7 @@ export default function Download(props) {
     const handleDownload = (id) => {
         axios({
             method: "POST",
-            url: "https://qodeit1.southindia.cloudapp.azure.com/watermarkResume",
+            url: "https://resume-byte-backend.onrender.com/watermarkResume",
             data: { id }
         })
             .then((res) => {
@@ -89,7 +89,7 @@ export default function Download(props) {
                 <div className='w-[80%] md:w-[30%] flex flex-col items-center justify-center'>
                     <TemplateBlock image={withWater} />
                     <div className='flex flex-col items-center my-2 gap-y-2'>
-                        <div>Dowwnload With Watermark (Free) | Not ATS Compatible</div>
+                        <div>Dowwnload With Watermark (Free) </div>
                         <div onClick={() => handleDownload(props.id)}>
                             <Button text='download' />
                         </div>
@@ -98,7 +98,7 @@ export default function Download(props) {
                 <div className='w-[80%] md:w-[30%] flex flex-col items-center justify-center'>
                     <TemplateBlock image={withoutWater} />
                     <div className='flex flex-col items-center my-2 gap-y-2'>
-                        <div>Download Without Watermark(1rs) | ATS Compatible</div>
+                        <div>Download Without Watermark(1rs) </div>
                         <div onClick={() => handlePayment(props.id)}>
                             <Button text='download' />
                         </div>
