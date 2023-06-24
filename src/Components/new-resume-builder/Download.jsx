@@ -89,7 +89,7 @@ export default function Download(props) {
                 <div className='w-[80%] md:w-[30%] flex flex-col items-center justify-center'>
                     <TemplateBlock image={withWater} />
                     <div className='flex flex-col items-center my-2 gap-y-2'>
-                        <div>download with watermark (free)</div>
+                        <div>Dowwnload With Watermark (Free) | Not ATS Compatible</div>
                         <div onClick={() => handleDownload(props.id)}>
                             <Button text='download' />
                         </div>
@@ -98,7 +98,7 @@ export default function Download(props) {
                 <div className='w-[80%] md:w-[30%] flex flex-col items-center justify-center'>
                     <TemplateBlock image={withoutWater} />
                     <div className='flex flex-col items-center my-2 gap-y-2'>
-                        <div>download without watermark (1rs)</div>
+                        <div>Download Without Watermark(1rs) | ATS Compatible</div>
                         <div onClick={() => handlePayment(props.id)}>
                             <Button text='download' />
                         </div>

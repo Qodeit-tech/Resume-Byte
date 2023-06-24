@@ -27,7 +27,7 @@ export default function TemplateSelectionPage(props) {
                 const res = await axios(
                     {
                         method: "POST",
-                        url: "https://resume-byte-backend.onrender.com/createResume",
+                        url: "https://qodeit1.southindia.cloudapp.azure.com/createResume",
                         data: { ...props.submit, template }
                     })
                 props.set(res.data.data.id)
