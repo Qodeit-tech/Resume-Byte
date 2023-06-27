@@ -5,7 +5,7 @@ import ProjectBlock from './blocks/ProjectBlock'
 
 export default function ProjectDetails(props) {
 
-    // const [check, setCkeck] = useState(false)
+    // const [check, setCheck] = useState(false)
     const [data, setData] = useState([])
     const [check, setCheck] = useState(true)
     const [saved, setSaved] = useState(false)
@@ -18,6 +18,8 @@ export default function ProjectDetails(props) {
         }
         else {
             setCheck(false)
+
+            props.setcomp(5)
         }
     }
     const handleBack = () => {

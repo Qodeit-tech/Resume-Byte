@@ -135,9 +135,10 @@ export default function TemplateSelectionPage(props) {
         <div>
 
             {
-                loading ? <div className='flex flex-col items-center justify-center gap-4'>
-                    <div> creating resume ! please wait</div>
+                loading ? <div className='flex flex-col items-center justify-center gap-2'>
                     <div><img src={loader} alt="loader" /></div>
+
+                    <div className='text-md'> This May Take A Few Mins , Generating Resume Please Wait</div>
                 </div> :
                     <div className={`w-full h-full flex flex-col justify-center gap-y-4 ${generated ? "hidden" : "block"}`}>
                         <div className='text-[40px] w-full text-center'>

@@ -23,6 +23,10 @@ export default function ProjectBlock(props) {
         }
     }
 
+    const closeModal = () => {
+        setCheck(true)
+    }
+
     return (
         <>
             <div className='flex flex-col md:flex-row items-center justify-between'>
@@ -36,7 +40,22 @@ export default function ProjectBlock(props) {
                 <div className='w-[100px]' onClick={handleSubmit}>
                     <Button text="save" />
                 </div>
-                <div className={`text-red-500 ${!check ? "block" : "hidden"} text-[12px]`}>Something is wrong</div>
+                <div className={`text-red-500 ${!check ? "block" : "hidden"}`}>
+                    {
+                        <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50'>
+                            <div className='p-8 bg-white rounded-md'>
+                                <div className='mb-4 text-2xl font-bold'>There Was An Error</div>
+                                <div className='text-center text-md'>
+                                    Check If u Saved , Or If you have entered your details properly
+                                    (Make Sure Dates Are in right order)
+                                </div>
+                                <div className='flex justify-center mt-4' onClick={closeModal} >
+                                    <Button text='Close' />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </>
     )

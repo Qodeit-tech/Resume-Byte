@@ -3,15 +3,19 @@ import Button from '../../InputControl/Button'
 import InputControl from '../../InputControl/InputControl'
 
 export default function HobbiesDetails(props) {
-
-    // const [check, setCkeck] = useState(false)
+    const [showModal, setShowModal] = useState(false);
+    // const [check, setCheck] = useState(false)
     const [check, setCheck] = useState(true)
     const [hobbies, setHobbies] = useState(false)
     const [summary, setSummary] = useState(false);
-
+    const closeModal = () => {
+        setShowModal(false);
+    };
     const handleSubmit = () => {
         if ([hobbies, summary].includes(false)) {
             setCheck(false);
+
+            props.setcomp(6)
         }
         else {
             props.setData(hobbies.split(","))
@@ -43,7 +47,24 @@ export default function HobbiesDetails(props) {
                     </div>
                     <div className='flex gap-x-8 w-[100px]' onClick={handleSubmit}>
                         <Button text="Next" />
-                        <div className={`text-red-500 ${!check ? "block" : "hidden"} text-[12px]`}>Something is wrong</div>
+                        {/* <div className={`text-red-500 ${!check ? "block" : "hidden"} text-[12px]`}>
+
+                            {
+                                <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50'>
+                                    <div className='p-8 bg-white rounded-md'>
+                                        <div className='mb-4 text-2xl font-bold'>There Was An Error</div>
+                                        <div className='text-center text-md'>
+                                            Check If u Saved , Or If you have entered your details properly
+                                            (Make Sure Dates Are in right order)
+                                        </div>
+                                        <div className='flex justify-center mt-4' onClick={closeModal} >
+                                            <Button text='Close' />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div> */}
                     </div>
                 </div>
             </div>

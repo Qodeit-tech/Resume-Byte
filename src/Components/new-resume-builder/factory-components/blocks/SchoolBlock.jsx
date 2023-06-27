@@ -25,13 +25,17 @@ export default function SchoolBlock(props) {
         }
     }
 
+    const closeModal = () => {
+        setCheck(true)
+    }
+
     return (
         <>
             <div className='flex flex-col md:flex-row items-center justify-between'>
-                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="School" errmsg="invalid name" isComp placeholder="abc jr clg" set={setSchool} /></div>
-                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Degree" errmsg="invalid degree" isComp placeholder="b.tech" set={setDegree} /></div>
-                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Marks" errmsg="invalid marks" isComp placeholder="xx.xx%" set={setMarks} /></div>
-                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Discipline" errmsg="invalid" isComp placeholder="discipline" set={setDiscipline} /></div>
+                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="School" errmsg="invalid name" isComp placeholder="Eg. " set={setSchool} /></div>
+                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Degree" errmsg="invalid degree" isComp placeholder=" B-Tech " set={setDegree} /></div>
+                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Marks" errmsg="invalid marks" isComp placeholder="XX.XX%" set={setMarks} /></div>
+                <div className='w-[100%] md:w-[23%] h-[80px]'><InputControl field="Discipline" errmsg="invalid" isComp placeholder="Discipline" set={setDiscipline} /></div>
             </div>
             <div className='flex flex-col md:flex-row items-center justify-between'>
                 <div className='w-[100%] md:w-[47%] h-[80px]'><InputControl type="date" isComp field="Start Date" errmsg="invalid date" placeholder="dd-mm-yyyy" set={setStartDate} /></div>
@@ -41,7 +45,22 @@ export default function SchoolBlock(props) {
                 <div className='w-[100px]' onClick={handleSubmit}>
                     <Button text="save" />
                 </div>
-                <div className={`text-red-500 ${!check ? "block" : "hidden"} text-[12px]`}>Something is wrong</div>
+                <div className={`text-red-500 ${!check ? "block" : "hidden"}`}>
+                    {
+                        <div className='fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50'>
+                            <div className='p-8 bg-white rounded-md'>
+                                <div className='mb-4 text-2xl font-bold'>There Was An Error</div>
+                                <div className='text-center text-md'>
+                                    Check If u Saved , Or If you have entered your details properly
+                                    (Make Sure Dates Are in right order)
+                                </div>
+                                <div className='flex justify-center mt-4' onClick={closeModal} >
+                                    <Button text='Close' />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </>
     )

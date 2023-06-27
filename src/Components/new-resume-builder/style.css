@@ -1,70 +1,105 @@
- .experience .head{
-    /* text-decoration: underline; */
-    width: 100%;
-}
-.head{
-    /* text-decoration: underline; */
-    width: 100%;
-}
-.heading01{
-    font-size: 25px;
-    line-height: 1px;
-    margin-bottom: -10px;;
-}
-.heading02{
-    font-size: 20px;
-}
-h1{
-    line-height: 20px;
-}
+ .experience .head {
+     /* text-decoration: underline; */
+     width: 100%;
+ }
 
-.heading03{
-    /* text-decoration: underline; */
-    margin-bottom: -5px;
-}
+ .head {
+     /* text-decoration: underline; */
+     width: 100%;
+ }
 
-.heading04{
-    margin-top:-10px;
-}
-.heading{
-    /* text-decoration: underline; */
-    width: 100%;
-    line-height: 2px;;
-}
+ .heading01 {
+     font-size: 25px;
+     line-height: 1px;
+     margin-bottom: -10px;
+     ;
+ }
 
-.detail{
-    margin-top:-15px;
-}
+ .heading02 {
+     font-size: 20px;
+ }
 
-.detail01{
-    margin-top: -10px;;
-    margin-bottom: -10px;;
-}
+ h1 {
+     line-height: 20px;
+ }
 
-#a1 {
-    position: absolute;
-    right: 40px;
-    top: 80px;
-    font-size: 20px;
-}
+ .heading03 {
+     /* text-decoration: underline; */
+     margin-bottom: -5px;
+ }
 
-#a2 {
-    position: absolute;
-    right: 40px;
-    top: 280px;
-    font-size: 20px;
-}
+ .heading04 {
+     margin-top: -10px;
+ }
 
-.experience .resume{
-    line-height: 2px;
-}
+ .heading {
+     /* text-decoration: underline; */
+     width: 100%;
+     line-height: 2px;
+     ;
+ }
 
-.heading1{
-    /* text-decoration: underline; */
-    line-height: 10px;
-}
+ .detail {
+     margin-top: -15px;
+ }
 
-.heading2{
-    /* text-decoration: underline; */
-    line-height: 10px;
-}
+ .detail01 {
+     margin-top: -10px;
+     ;
+     margin-bottom: -10px;
+     ;
+ }
+
+ #a1 {
+     position: absolute;
+     right: 40px;
+     top: 80px;
+     font-size: 20px;
+ }
+
+ #a2 {
+     position: absolute;
+     right: 40px;
+     top: 280px;
+     font-size: 20px;
+ }
+
+ .experience .resume {
+     line-height: 2px;
+ }
+
+ .heading1 {
+     /* text-decoration: underline; */
+     line-height: 10px;
+ }
+
+ .heading2 {
+     /* text-decoration: underline; */
+     line-height: 10px;
+ }
+
+ .loader {
+     border-top-color: #3498db;
+     -webkit-animation: spinner 1.5s linear infinite;
+     animation: spinner 1.5s linear infinite;
+ }
+
+ @-webkit-keyframes spinner {
+     0% {
+         -webkit-transform: rotate(0deg);
+     }
+
+     100% {
+         -webkit-transform: rotate(360deg);
+     }
+ }
+
+ @keyframes spinner {
+     0% {
+         transform: rotate(0deg);
+     }
+
+     100% {
+         transform: rotate(360deg);
+     }
+ }

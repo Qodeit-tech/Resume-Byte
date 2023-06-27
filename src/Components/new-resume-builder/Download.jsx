@@ -100,7 +100,7 @@ export default function Download(props) {
                     <div className='flex flex-col items-center my-2 gap-y-2'>
                         <div>Download Without Watermark(1rs) </div>
                         <div onClick={() => handlePayment(props.id)}>
-                            <Button text='download' />
+                            <Button text='downl4oad' />
                         </div>
                     </div>
                 </div>
