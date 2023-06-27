@@ -49,7 +49,7 @@ export default function CompanyBlock(props) {
                         field="Organization"
                         errmsg="invalid"
                         isComp
-                        placeholder="abc private limited"
+                        placeholder="ABC Pvt Ltd"
                         set={setOrganization}
                     />
                 </div>
@@ -58,7 +58,7 @@ export default function CompanyBlock(props) {
                         field="Position"
                         errmsg="invalid"
                         isComp
-                        placeholder="web developer"
+                        placeholder="Web Developer"
                         set={setPosition}
                     />
                 </div>
@@ -109,7 +109,7 @@ export default function CompanyBlock(props) {
             </div>
             <div className="w-full my-8">
                 <div className="w-[100px]" onClick={handleSubmit}>
-                    <Button text="save" />
+                    <Button text="Save" />
                 </div>
                 <div
                     className={`text-red-500 ${!check ? 'block' : 'hidden'}`}

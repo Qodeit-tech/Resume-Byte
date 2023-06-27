@@ -142,7 +142,7 @@ export default function TemplateSelectionPage(props) {
                 </div> :
                     <div className={`w-full h-full flex flex-col justify-center gap-y-4 ${generated ? "hidden" : "block"}`}>
                         <div className='text-[40px] w-full text-center'>
-                            | 1 & 2 - Non ATS | Choose a Template | 3 & 4 ATS Compatible |
+                            1 & 2 - Non ATS | Choose a Template | 3 & 4 ATS Compatible
                         </div>
                         <div className='flex flex-col flex-wrap items-center w-full md:flex-row justify-evenly gap-y-4'>
                             {
